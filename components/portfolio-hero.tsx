@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 import { Button } from "@/components/ui/button"
-import { Github, Filter } from "lucide-react"
+import { Github } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 export function PortfolioHero() {
@@ -26,54 +26,34 @@ export function PortfolioHero() {
               complex MERN stack solutions.
             </p>
           </div>
-
-          <div
-            className={cn(
-              "flex flex-col sm:flex-row gap-4 justify-center items-center",
-              isVisible ? "animate-fade-in-up delay-200" : "opacity-0",
-            )}
-          >
-            <Button
-              asChild
-              size="lg"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 text-lg font-semibold"
-            >
-              <a href="https://github.com/cherag-16" target="_blank" rel="noopener noreferrer">
-                <Github className="mr-2 h-5 w-5" />
-                View on GitHub
-              </a>
-            </Button>
-            <Button
-              variant="outline"
-              size="lg"
-              className="px-8 py-6 text-lg font-semibold border-primary text-primary hover:bg-primary hover:text-primary-foreground bg-transparent"
-            >
-              <Filter className="mr-2 h-5 w-5" />
-              Filter Projects
-            </Button>
-          </div>
-
           <div
             className={cn(
               "grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-2xl mx-auto",
               isVisible ? "animate-fade-in-up delay-400" : "opacity-0",
             )}
           >
-            <div className="text-center p-4 rounded-lg bg-card border border-border">
-              <div className="text-3xl font-serif font-bold text-primary">15+</div>
-              <div className="text-sm text-muted-foreground">Projects Built</div>
-            </div>
-            <div className="text-center p-4 rounded-lg bg-card border border-border">
-              <div className="text-3xl font-serif font-bold text-accent">100%</div>
-              <div className="text-sm text-muted-foreground">Live & Deployed</div>
-            </div>
-            <div className="text-center p-4 rounded-lg bg-card border border-border">
-              <div className="text-3xl font-serif font-bold text-primary">5+</div>
-              <div className="text-sm text-muted-foreground">Tech Stacks</div>
-            </div>
           </div>
         </div>
       </div>
+      <div className="text-center mt-16">
+        <div className="inline-flex items-center space-x-4 p-6 rounded-lg bg-card border border-border">
+          <div className="text-center">
+            <div className="text-2xl font-serif font-bold text-primary">MERN</div>
+            <div className="text-sm text-muted-foreground">Primary Stack</div>
+          </div>
+          <div className="w-px h-12 bg-border" />
+          <div className="text-center">
+            <div className="text-2xl font-serif font-bold text-accent">Full Stack</div>
+            <div className="text-sm text-muted-foreground">Development</div>
+          </div>
+          <div className="w-px h-12 bg-border" />
+          <div className="text-center">
+            <div className="text-2xl font-serif font-bold text-primary">Cloud Ready</div>
+            <div className="text-sm text-muted-foreground">Deployment</div>
+          </div>
+        </div>
+      </div>
+
     </section>
   )
 }

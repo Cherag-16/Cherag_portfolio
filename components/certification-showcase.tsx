@@ -41,35 +41,35 @@ const certificationCategories = {
         issuer: "DevTown",
         date: "2024",
         description: "Node.js, Express and JavaScript-focused hands-on 7-day project (Instagram Auth clone).",
-        verified: false,
+        verified: true,
       },
       {
         title: "Amazon Clone (7 days)",
         issuer: "DevTown / Google DSC",
         date: "2024",
         description: "HTML, CSS and JS mini-project building an Amazon-like storefront.",
-        verified: false,
+        verified: true,
       },
       {
         title: "JS & React Bootcamp",
         issuer: "DevTown / GDSC GIET",
         date: "2024",
         description: "Comprehensive React.js bootcamp (A–Z) covering component patterns and state management.",
-        verified: false,
+        verified: true,
       },
       {
         title: "Intro to C++ and DSA",
         issuer: "DevTown + GDSC",
         date: "2024",
         description: "Foundations of data structures and algorithms using C++.",
-        verified: false,
+        verified: true,
       },
       {
         title: "Deep Learning & Deployment",
         issuer: "DevTown + GDSC",
         date: "2024",
         description: "Deep learning fundamentals and web deployment workflows.",
-        verified: false,
+        verified: true,
       },
     ],
   },
@@ -187,7 +187,7 @@ const certificationCategories = {
         issuer: "SAGE Euphoria 2024",
         date: "April 2024",
         description: "Robotics competition participation.",
-        verified: false,
+        verified: true,
       },
       {
         title: "Google Flutter – Intermediate",
@@ -206,35 +206,35 @@ const certificationCategories = {
         issuer: "IIT Indore",
         date: "2024-2025",
         description: "Knowledge exchange and speaker engagement.",
-        verified: false,
+        verified: true,
       },
       {
         title: "Startup Spark 2024",
         issuer: "SAGE University",
         date: "2024",
         description: "Participated in entrepreneurship & innovation summit.",
-        verified: false,
+        verified: true,
       },
       {
         title: "Appreciation Awards (x3)",
         issuer: "DevTown",
         date: "Feb 2024",
         description: "For community contributions and support.",
-        verified: false,
+        verified: true,
       },
       {
         title: "Expert Session – Java Programming",
         issuer: "SAGE University, Indore",
         date: "May 7, 2024",
         description: "Industry-oriented Java session.",
-        verified: false,
+        verified: true,
       },
       {
         title: "Expert Session – Python Programming",
         issuer: "SAGE University, Indore",
         date: "May 8, 2024",
         description: "Industry-oriented Python session.",
-        verified: false,
+        verified: true,
       },
     ],
   },
@@ -244,12 +244,12 @@ export function CertificationShowcase() {
   const [activeCategory, setActiveCategory] = useState("fullstack")
 
   return (
-    <section className="py-20 bg-muted/30">
+    <section className="py-20 bg-gradient-to-br from-primary/5 via-background to-muted/40">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-serif font-bold text-foreground mb-4">Certifications & Training</h2>
+          <h2 className="text-4xl font-serif font-bold text-primary drop-shadow mb-4">Certifications & Training</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            33+ verified certifications across multiple domains, showcasing continuous learning and expertise.
+            <span className="font-semibold text-primary">33+</span> verified certifications across multiple domains, showcasing continuous learning and expertise.
           </p>
         </div>
 
@@ -261,7 +261,7 @@ export function CertificationShowcase() {
                 key={key}
                 variant={activeCategory === key ? "default" : "outline"}
                 onClick={() => setActiveCategory(key)}
-                className="mb-2"
+                className="mb-2 shadow-md rounded-full px-6 py-2 text-base font-medium"
               >
                 {category.title}
               </Button>
@@ -269,35 +269,36 @@ export function CertificationShowcase() {
           </div>
 
           {/* Certifications Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {certificationCategories[activeCategory as keyof typeof certificationCategories].certifications.map(
               (cert, index) => (
                 <Card
                   key={cert.title}
-                  className="group hover:shadow-lg transition-all duration-300 hover:scale-105 border-border hover:border-primary/50 bg-card/50 backdrop-blur-sm"
+                  className="group border-none shadow-xl bg-white/60 dark:bg-card/60 backdrop-blur-lg rounded-2xl transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:bg-primary/10 animate-fade-in"
+                  style={{ animationDelay: `${index * 80}ms` }}
                 >
-                  <CardHeader>
-                    <div className="flex items-start justify-between">
-                      <div className="flex items-center space-x-2">
-                        <Award className="h-5 w-5 text-primary" />
-                        {cert.verified && <Badge variant="secondary">Verified</Badge>}
+                  <CardHeader className="pb-2">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-2">
+                        <Award className="h-5 w-5 text-primary drop-shadow" />
+                        {cert.verified && <Badge variant="secondary" className="rounded-full px-3 py-1 text-xs">Verified</Badge>}
                       </div>
-                      <Button variant="ghost" size="icon">
-                        <ExternalLink className="h-4 w-4" />
-                      </Button>
+                      {/* External link button hidden for now, can be enabled if cert URLs available */}
                     </div>
-                    <CardTitle className="font-serif text-lg text-foreground leading-tight">{cert.title}</CardTitle>
+                    <CardTitle className="font-serif text-lg text-foreground leading-tight mt-2 mb-1">
+                      {cert.title}
+                    </CardTitle>
                   </CardHeader>
-                  <CardContent className="space-y-3">
-                    <div className="flex items-center space-x-2 text-sm text-muted-foreground">
-                      <Building className="h-4 w-4" />
-                      <span>{cert.issuer}</span>
+                  <CardContent className="space-y-2">
+                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                      <Building className="h-4 w-4 text-primary/70" />
+                      <span className="font-medium text-foreground">{cert.issuer}</span>
                     </div>
-                    <div className="flex items-center space-x-2 text-sm text-muted-foreground">
-                      <Calendar className="h-4 w-4" />
+                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                      <Calendar className="h-4 w-4 text-primary/70" />
                       <span>{cert.date}</span>
                     </div>
-                    <p className="text-sm text-muted-foreground leading-relaxed">{cert.description}</p>
+                    <p className="text-sm text-muted-foreground leading-relaxed mt-1">{cert.description}</p>
                   </CardContent>
                 </Card>
               ),
@@ -305,6 +306,19 @@ export function CertificationShowcase() {
           </div>
         </div>
       </div>
+      <style jsx>{`
+        .animate-fade-in {
+          opacity: 0;
+          transform: translateY(20px);
+          animation: fadeInUp 0.6s forwards;
+        }
+        @keyframes fadeInUp {
+          to {
+            opacity: 1;
+            transform: none;
+          }
+        }
+      `}</style>
     </section>
   )
 }

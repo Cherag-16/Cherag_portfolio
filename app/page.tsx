@@ -11,11 +11,11 @@ export default function HomePage() {
     <div className="min-h-screen">
       <Navigation />
       <main>
-  <HeroSection />
-  <Testimonials />
-  <StatsSection />
+        <HeroSection />
+        <StatsSection />
         <FeaturedProjects />
         <CallToAction />
+        <Testimonials />
       </main>
       <Footer />
     </div>

@@ -3,7 +3,6 @@ import { Footer } from "@/components/footer"
 import { PortfolioHero } from "@/components/portfolio-hero"
 import { ProjectsGrid } from "@/components/projects-grid"
 import { ProjectStats } from "@/components/project-stats"
-import { TechStack } from "@/components/tech-stack"
 
 export default function PortfolioPage() {
   return (
@@ -12,8 +11,7 @@ export default function PortfolioPage() {
       <main>
         <PortfolioHero />
         <ProjectStats />
-        <ProjectsGrid />
-        <TechStack />
+  <ProjectsGrid />
       </main>
       <Footer />
     </div>

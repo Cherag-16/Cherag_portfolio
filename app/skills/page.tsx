@@ -1,8 +1,8 @@
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { SkillsHero } from "@/components/skills-hero"
-import { TechnicalSkills } from "@/components/technical-skills"
-import { CertificationShowcase } from "@/components/certification-showcase"
+import { TechStack } from "@/components/tech-stack"
+import { ProfessionalSkills } from "@/components/professional-skills"
 import { SkillsTimeline } from "@/components/skills-timeline"
 
 export default function SkillsPage() {
@@ -10,10 +10,10 @@ export default function SkillsPage() {
     <div className="min-h-screen">
       <Navigation />
       <main>
-        <SkillsHero />
-        <TechnicalSkills />
-        <CertificationShowcase />
-        <SkillsTimeline />
+  <SkillsHero />
+  <TechStack />
+  <ProfessionalSkills />
+    <SkillsTimeline />
       </main>
       <Footer />
     </div>

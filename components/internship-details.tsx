@@ -1,71 +1,122 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Building, Calendar, MapPin, Award, Users, Code, Target } from "lucide-react"
+import { id } from "date-fns/locale"
 
 const internships = [
   {
+    title: "Microsoft Certified: Azure Fundamentals",
+    company: "Microsoft",
+    duration: "June 2025",
+    location: "Online",
+    type: "Internship / Training Experience",
+    status: "Score: 900/1000",
+    description: "Completed Microsoft’s Azure Fundamentals (AZ-900) training and certification program focused on cloud computing concepts, Azure architecture, and cloud governance. Combined theoretical learning with hands-on practical exercises in the Azure cloud environment.",
+    responsibilities: [
+      "Gained practical understanding of cloud models, Azure services, and deployment models.",
+      "Worked through hands-on Azure labs to configure virtual machines, storage, and identity management.",
+      "Studied and implemented key principles of cloud security, governance, and cost management.",
+      "Passed the official Microsoft certification exam with a score of 900 / 1000."
+    ],
+    achievements: [
+      "Earned Microsoft Certified: Azure Fundamentals (AZ-900) credential",
+      "Score: 900/1000, Verified Credential: Cx35-Dw8X",
+    ],
+    technologies: [
+      "Microsoft Azure Portal",
+      "Azure Resource Manager (ARM)",
+      "Azure Virtual Machines (VMs)",
+      "Azure Storage (Blob, Table, File, Queue)",
+      "Azure Networking (VNet, NSG, Load Balancer)",
+      "Azure Active Directory (AAD)",
+      "Azure Cost Management & Governance Tools",
+    ],
+    skills: [
+      "Cloud Computing Fundamentals",
+      "Azure Service Management",
+      "Virtualization & Resource Deployment",
+      "Identity & Access Management",
+      "Cloud Security & Governance",
+      "Cost Optimization",
+      "Cloud Architecture Design Principles",
+      "Problem Solving & Technical Analysis",
+    ],
+  },
+  {
+    title: "Website Designing and Website Development Internship",
+    company: "Vishal Global Tech",
+    duration: "January - February 2025",
+    location: "Greater Noida, India",
+    type: "Internship",
+    status: "Successfully Completed",
+    description:
+      "Completed a 3-week internship focused on full-stack web development, contributing to the design, development, and deployment of a live web application. Gained hands-on experience in real-world development environments and applied best practices of the Software Development Life Cycle (SDLC).",
+    responsibilities: [
+      "Designed and developed responsive web pages using HTML5, CSS3, and JavaScript.",
+      "Integrated dynamic content and server communication using Web APIs.",
+      "Managed and queried databases using SQL Server.",
+      "Followed all phases of the SDLC — including planning, requirement analysis, design, coding, testing, deployment, and maintenance.",
+      "Collaborated with the technical team to enhance website functionality and optimize user experience.",],
+    achievements: [
+      "Successfully contributed to the live project indelhincr.com",
+      "Improved website responsiveness and performance by implementing optimized CSS and JavaScript techniques.",
+      "Gained practical exposure to real-time project workflows and deployment processes.",
+      "Gained industry-standard development experience",
+      "Received mentorship from experienced developers",
+    ],
+    technologies: ["HTML5", "CSS3", "JavaScript", "Web APIs", "SQL Server", "Git"],
+    skills: ["Web Development", "UI/UX Design", "Database Management", "SDLC", "Problem Solving", "Code Optimization", "Team Collaboration"],
+    projects: [
+      {
+        id: 1,
+        name: "indelhincr",
+        description:
+          "Contributed to the live website indelhincr.com by implementing responsive layouts, optimizing asset delivery, and improving cross-browser compatibility. Worked on frontend enhancements and collaborated on deployment configurations.",
+        link: "https://www.indelhincr.com/",
+      },
+    ],
+  },
+  {
     title: "Web Development Internship",
-    company: "My Job Grow + Techfest IIT Bombay",
+    company: "My Job Grow (in collaboration with IIT Bombay)",
     duration: "OCT - DEC 2024",
-    location: "Remote",
-    type: "Advanced Full Stack",
+    location: "Hybrid (Online + Live Projects)",
+    type: " MERN Full Stack",
     status: "Completed with Excellence",
     description:
       "Advanced full-stack development internship in collaboration with Techfest IIT Bombay. Focused on building complex web applications with modern technologies and achieved exceptional performance recognition.",
     responsibilities: [
-      "Developed full-stack web applications using MERN stack",
+      "Developed and maintained responsive, user-friendly web applications using MERN stack",
       "Implemented responsive UI/UX designs with modern frameworks",
       "Collaborated with cross-functional teams on project delivery",
       "Participated in code reviews and technical discussions",
       "Delivered projects with exceptional quality and performance",
+      "Deployed web applications on Netlify and Render, managing environment configurations and version control via GitHub.",
     ],
     achievements: [
-      "Exceptional Performance Recognition",
-      "Successfully completed all assigned projects",
-      "Received positive feedback from mentors",
+      "Earned “Outstanding Achievement” recognition for exceptional project performance and dedication.",
+      "Successfully completed all assigned projects with positive feedback from mentors",
+      "Built and deployed two production-ready web projects:",
       "Demonstrated strong problem-solving skills",
-      "Awarded Microsoft Certified: Azure Fundamentals (Score: 900/1000) listed with internship achievements",
+      "Received official Course & Internship Completion Certificates from My Job Grow",
     ],
-    technologies: ["React", "Node.js", "MongoDB", "Express", "JavaScript", "Git", "Agile"],
-    skills: ["Full Stack Development", "Team Collaboration", "Project Management", "Problem Solving"],
-  },
-  {
-    title: "Web Development Internship",
-    company: "VGT (under MSME, India)",
-    duration: "January - February 2025",
-    location: "India",
-    type: "Practical Training",
-    status: "Successfully Completed",
-    description:
-      "3-week intensive web development internship under MSME, India. Gained practical exposure to full web stack development with hands-on experience in industry-standard practices and methodologies.",
-    responsibilities: [
-      "Learned full-stack web development fundamentals",
-      "Built responsive web applications from scratch",
-      "Implemented database design and management",
-      "Practiced version control and deployment processes",
-      "Participated in daily standups and project planning",
-    ],
-    achievements: [
-      "Completed 3-week intensive training program",
-      "Built multiple web applications",
-      "Gained industry-standard development experience",
-      "Received mentorship from experienced developers",
-    ],
-    technologies: ["HTML5", "CSS3", "JavaScript", "React", "Node.js", "Database Management", "Git"],
-    skills: ["Web Development", "Database Design", "Version Control", "Professional Communication"],
-  },
-  {
-    title: "Microsoft Certified: Azure Fundamentals",
-    company: "Microsoft (Certiport)",
-    duration: "June 2025",
-    location: "Online",
-    type: "Certification",
-    status: "Score: 900/1000",
-    description: "Microsoft Azure Fundamentals certification (June 2025). Verification ID: Cx35-Dw8X.",
-    responsibilities: ["Cloud fundamentals mastery", "Core Azure services understanding"],
-    achievements: ["Score: 900/1000", "Verified Credential: Cx35-Dw8X"],
-    technologies: ["Azure"],
-    skills: ["Cloud Concepts", "Azure Services"],
+    technologies: ["React", "Node.js", "MongoDB", "Express", "JavaScript", "Tailwind CSS", "Git", "Agile", "HTML5", "CSS3"],
+    skills: ["MERN Full Stack Development", "Analytical Thinking & Problem Solving", "Project Management", "Responsive UI Design", "Debugging and Continuous Learning Mindset"],
+    projects: [
+      {
+        id: 1,
+        name: "trackmyexpensess",
+        description:
+          "A comprehensive expense tracking web application with user authentication, real-time data visualization, and budget management features. ",
+        link: "https://trackmyexpensess.netlify.app/",
+      },
+      {
+        id: 2,
+        name: "chatbox-frontend",
+        description:
+          "A chat application with user authentication, real-time messaging, and group chat features.",
+        link: "https://chatbox-frontend.netlify.app/",
+      },]
   },
 ]
 
@@ -184,6 +235,30 @@ export function InternshipDetails() {
                           </Badge>
                         ))}
                       </div>
+                      {/* Projects (if any) */}
+                      {internship.projects && internship.projects.length > 0 && (
+                        <div className="mt-4">
+                          <h4 className="font-serif font-semibold text-foreground mb-3">Projects :</h4>
+                          <div className="space-y-3">
+                            {internship.projects.map((proj, pidx) => (
+                              <div key={pidx} className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+                                <div>
+                                  <div className="font-medium text-foreground">
+                                    {proj.link ? (
+                                      <a href={proj.link} target="_blank" rel="noopener noreferrer" className="text-primary font-medium hover:underline">
+                                        {proj.name}
+                                      </a>
+                                    ) : (
+                                      proj.name
+                                    )}
+                                  </div>
+                                  <div className="text-sm text-muted-foreground">{proj.description}</div>
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>

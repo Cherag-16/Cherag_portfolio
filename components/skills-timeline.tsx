@@ -57,7 +57,7 @@ export function SkillsTimeline() {
               {timelineEvents.map((event, index) => {
                 const Icon = event.icon
                 return (
-                  <div key={event.year} className="relative flex items-start space-x-6">
+                  <div key={event.year + '-' + index} className="relative flex items-start space-x-6">
                     {/* Timeline Dot */}
                     <div className="relative z-10 flex items-center justify-center w-16 h-16 rounded-full bg-primary text-primary-foreground">
                       <Icon className="h-6 w-6" />

@@ -1,0 +1,151 @@
+[
+  {
+    "slug": "track-my-expenses",
+    "title": "Track My Expenses",
+    "shortDescription": "Full Stack MERN App for tracking and analyzing expenses.",
+    "intro": "TrackMyExpenses is a web-based personal finance application designed to help users track income and expenses in a simple and efficient way. The project focuses on clean UI, ease of use, and real-time financial visibility.",
+    "problem": "Managing daily expenses manually or through spreadsheets is time-consuming and often inconsistent. Many existing applications are complex or overloaded with features, making them unsuitable for quick and regular expense tracking.",
+    "solution": "TrackMyExpenses offers a lightweight and intuitive solution that allows users to record transactions and instantly view their financial balance. The application simplifies expense management while ensuring fast performance and accessibility.",
+    "role": "Full-stack (lead)",
+    "techStack": ["React", "Node.js", "Express", "MongoDB", "JavaScript", "Tailwind CSS"],
+    "challenges": ["Responsive UI design", "Real-time data updates", "Efficient filtering and sorting"],
+    "images": ["/TrackMyExpenses.png"],
+    "repo": "",
+    "demo": "https://trackmyexpensess.netlify.app/",
+    "featured": true,
+    "duration": "2 months",
+    "team": "Solo"
+  },
+
+  {
+    "slug": "real-time-chat-platform",
+    "title": "Chatbox UI",
+    "shortDescription": "Frontend chat interface with real-time messaging and presence.",
+    "problem": "Teams need low-latency chat with presence and reliable delivery.",
+    "role": "Frontend + Realtime UX",
+    "techStack": ["React", "Socket.IO", "Redis", "Node.js"],
+    "challenges": ["Realtime presence across nodes", "Message ordering", "Optimizing bandwidth"],
+    "solution": "Socket.IO with Redis pub/sub for presence; optimistic UI updates and replay on reconnect.",
+    "images": ["/chatbox.png"],
+    "repo": "",
+    "demo": "https://chatbox-frontend.netlify.app/",
+    "featured": true
+  },
+
+  {
+    "slug": "book-store-with-redux",
+    "title": "Book Store with Redux",
+    "shortDescription": "E-commerce book store with cart and user auth.",
+    "problem": "Need a demo e-commerce app to showcase state management and cart flows.",
+    "role": "Frontend",
+    "techStack": ["React", "Redux", "JavaScript"],
+    "challenges": ["Cart state persistence", "Checkout UX"],
+    "solution": "Centralized store with Redux and persisted state for cart and user sessions.",
+    "images": ["/placeholder-dode5.webp"],
+    "repo": "",
+    "demo": "https://book-store-with-redux.netlify.app/",
+    "featured": false
+  },
+
+  {
+    "slug": "redux-todo-manager",
+    "title": "Redux Todo Manager",
+    "shortDescription": "Advanced todo app demonstrating Redux patterns.",
+    "problem": "Showcase patterns for scalable state management.",
+    "role": "Frontend",
+    "techStack": ["React", "Redux"],
+    "challenges": ["State normalization", "Selectors and performance"],
+    "solution": "Normalized store structure and memoized selectors.",
+    "images": ["/placeholder-a8a9o.webp"],
+    "repo": "",
+    "demo": "https://redux-todo-manager.netlify.app/",
+    "featured": false
+  },
+  {
+    "slug": "weather-forecast-app",
+    "title": "Weather Forecast App",
+    "shortDescription": "Location-based weather forecasts with interactive UI.",
+    "problem": "Presenting realtime weather data in a responsive interface.",
+    "role": "Frontend",
+    "techStack": ["React", "API Integration"],
+    "challenges": ["Handling external APIs", "Caching responses"],
+    "solution": "Efficient API usage with client-side caching and progressive enhancement.",
+    "images": ["/placeholder-a8a9o.webp"],
+    "repo": "",
+    "demo": "https://weather-forcastss.netlify.app/",
+    "featured": false
+  },
+  {
+    "slug": "form-handler-usereducer",
+    "title": "Form Handler (useReducer)",
+    "shortDescription": "Form patterns using React's useReducer.",
+    "problem": "Show robust patterns for complex forms.",
+    "role": "Frontend",
+    "techStack": ["React", "useReducer"],
+    "challenges": ["State management for forms"],
+    "solution": "useReducer driven form logic with clear action types.",
+    "images": ["/placeholder-a8a9o.webp"],
+    "repo": "",
+    "demo": "https://handling-form-data-with-usereducer.netlify.app/",
+    "featured": false
+  },
+  {
+    "slug": "understanding-usereducer",
+    "title": "Understanding useReducer",
+    "shortDescription": "In-depth examples and patterns for useReducer.",
+    "problem": "Developers need patterns for predictable reducer logic.",
+    "role": "Author",
+    "techStack": ["React"],
+    "challenges": ["Edge cases and best practices"],
+    "solution": "Examples and recommended conventions.",
+    "images": ["/placeholder-a8a9o.webp"],
+    "repo": "",
+    "demo": "https://understanding-usereducer-in-react.netlify.app/",
+    "featured": false
+  },
+
+  {
+    "slug": "dynamic-feedback-system",
+    "title": "Dynamic Feedback System",
+    "shortDescription": "Real-time feedback collection and analytics.",
+    "problem": "Collecting and visualizing user feedback in realtime.",
+    "role": "Frontend",
+    "techStack": ["React", "Chart.js"],
+    "challenges": ["Realtime updates", "Scalable charts"],
+    "solution": "Efficient charting and incremental updates.",
+    "images": ["/placeholder-a8a9o.webp"],
+    "repo": "",
+    "demo": "https://dynamicfeedbac.netlify.app/",
+    "featured": false
+  },
+
+  {
+    "slug": "login-form-validations",
+    "title": "Login Form Validations",
+    "shortDescription": "Secure and user-friendly login validation examples.",
+    "problem": "Improve UX and security on login forms.",
+    "role": "Frontend",
+    "techStack": ["React"],
+    "challenges": ["Client-side validation", "Accessibility"],
+    "solution": "Progressive enhancement and clear validation messages.",
+    "images": ["/placeholder-a8a9o.webp"],
+    "repo": "",
+    "demo": "https://loginformvalidations.netlify.app/",
+    "featured": false
+  },
+
+  {
+    "slug": "basic-controller-form",
+    "title": "Basic Controller Form",
+    "shortDescription": "Controlled form patterns and best practices.",
+    "problem": "Teach controlled vs uncontrolled form patterns.",
+    "role": "Frontend",
+    "techStack": ["React"],
+    "challenges": ["Form control state"],
+    "solution": "Examples and clear contrast of approaches.",
+    "images": ["/placeholder-a8a9o.webp"],
+    "repo": "",
+    "demo": "https://basiccontrollerform.netlify.app/",
+    "featured": false
+  }
+]

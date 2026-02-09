@@ -34,6 +34,8 @@ const techStacks = [
       { name: "VS Code", level: "Expert", color: "bg-blue-600" },
       { name: "Netlify", level: "Advanced", color: "bg-teal-500" },
       { name: "Vercel", level: "Advanced", color: "bg-black" },
+      { name: "Figma", level: "Intermediate", color: "bg-black" },
+
       // { name: "Postman", level: "Intermediate", color: "bg-orange-600" },
       // { name: "Docker", level: "Beginner", color: "bg-blue-400" },
     ],
@@ -104,25 +106,6 @@ export function TechStack() {
               </CardContent>
             </Card>
           ))}
-        </div>
-
-        <div className="text-center mt-16">
-          <div className="inline-flex items-center space-x-4 p-6 rounded-lg bg-card border border-border">
-            <div className="text-center">
-              <div className="text-2xl font-serif font-bold text-primary">MERN</div>
-              <div className="text-sm text-muted-foreground">Primary Stack</div>
-            </div>
-            <div className="w-px h-12 bg-border" />
-            <div className="text-center">
-              <div className="text-2xl font-serif font-bold text-accent">Full Stack</div>
-              <div className="text-sm text-muted-foreground">Development</div>
-            </div>
-            <div className="w-px h-12 bg-border" />
-            <div className="text-center">
-              <div className="text-2xl font-serif font-bold text-primary">Cloud Ready</div>
-              <div className="text-sm text-muted-foreground">Deployment</div>
-            </div>
-          </div>
         </div>
       </div>
     </section>

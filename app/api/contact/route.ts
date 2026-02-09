@@ -75,7 +75,6 @@ async function sendWithSendGrid({ fromEmail, fromName, subject, html, text, repl
 
 export async function POST(request: NextRequest) {
   try {
-    // Read raw text first so we can handle different content types and give better errors
     let raw = ""
     try {
       raw = await request.text()
@@ -90,11 +89,9 @@ export async function POST(request: NextRequest) {
     }
 
     let body: any = undefined
-    // Try JSON first
     try {
       body = JSON.parse(raw)
     } catch (jsonErr) {
-      // Not JSON — attempt to parse as URL-encoded form data (e.g., a simple form submit)
       try {
         const params = new URLSearchParams(raw)
         body = Object.fromEntries(params.entries())
@@ -106,12 +103,10 @@ export async function POST(request: NextRequest) {
 
     const { name, email, subject, message } = body || {}
 
-    // Validate required fields
     if (!name || !email || !subject || !message) {
       return NextResponse.json({ error: "All fields are required" }, { status: 400 })
     }
 
-    // Compose email content
     const html = `
       <p>You have a new contact form submission on your website:</p>
       <p><strong>Name:</strong> ${name}</p>
@@ -123,7 +118,6 @@ export async function POST(request: NextRequest) {
     `
 
     const text = `New contact form submission\n\nName: ${name}\nEmail: ${email}\nSubject: ${subject}\nMessage:\n${message}\n\nReceived at: ${new Date().toISOString()}`
-    // Persist every submission (audit) so you can inspect messages via the GET endpoint
     try {
       const storePath = path.join(process.cwd(), "data", "contacts.json")
       let existing: any[] = []
@@ -141,11 +135,8 @@ export async function POST(request: NextRequest) {
       console.error("Failed to persist contact message (audit):", fsErr)
     }
 
-    // Send mail to site owner: prefer SendGrid if configured, else SMTP
     try {
-      // Put sender's name at the front of the subject for clarity
       const emailSubject = `[Website] ${name} — ${subject}`
-
       if (SENDGRID_API_KEY) {
         await sendWithSendGrid({ fromEmail: EMAIL_FROM, fromName: 'Website', replyToEmail: email, replyToName: name, subject: emailSubject, html, text })
       } else {
@@ -155,7 +146,6 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ success: true, message: "Message sent successfully!" }, { status: 200 })
     } catch (sendErr) {
       console.error("Email send failed:", sendErr)
-      // As a fallback persist the message for dev inspection
       try {
         const storePath = path.join(process.cwd(), "data", "contacts.json")
         let existing: any[] = []
@@ -181,7 +171,6 @@ export async function POST(request: NextRequest) {
 }
 
 export async function GET() {
-  // If data/contacts.json exists return stored submissions (helpful for dev)
   const storePath = path.join(process.cwd(), "data", "contacts.json")
 
   try {
@@ -198,7 +187,6 @@ export async function GET() {
 }
 
 export function OPTIONS() {
-  // Allow preflight checks from browsers
   return new NextResponse(null, {
     status: 204,
     headers: {

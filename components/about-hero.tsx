@@ -70,7 +70,7 @@ export function AboutHero() {
             <div className="relative w-full max-w-md mx-auto">
               <div className="aspect-square rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 p-8">
                 <img
-                  src="/professional-developer-portrait.png"
+                  src="/professional-developer-portrait.webp"
                   alt="Cherag Saxena"
                   className="w-full h-full object-cover rounded-xl"
                 />

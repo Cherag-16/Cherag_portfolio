@@ -86,12 +86,12 @@ export function HeroSection() {
                 <Code className="ml-2 h-5 w-5" />
               </Link>
             </Button>
-            <Button variant="ghost" size="lg" className="px-8 py-6 text-lg font-semibold text-accent hover:bg-accent/10">
+            {/* <Button variant="ghost" size="lg" className="px-8 py-6 text-lg font-semibold text-accent hover:bg-accent/10">
               <a href="/Cherag_Saxena_Resume.pdf" download className="flex items-center">
                 <Download className="mr-2 h-5 w-5" />
                 Download Resume
               </a>
-            </Button>
+            </Button> */}
           </div>
 
           {/* Quick Stats Preview */}
