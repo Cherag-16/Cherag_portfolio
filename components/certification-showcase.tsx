@@ -4,11 +4,23 @@ import { useState } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { ExternalLink, Award, Calendar, Building } from "lucide-react"
+import { Cloud, Award, Brain, Zap, Lock, Radio, Code2, BookOpen } from "lucide-react"
+
+const certificationIcons: { [key: string]: any } = {
+  cloud: Cloud,
+  award: Award,
+  brain: Brain,
+  zap: Zap,
+  security: Lock,
+  iot: Radio,
+  code: Code2,
+  learning: BookOpen,
+}
 
 const certificationCategories = {
   fullstack: {
     title: "Full Stack & Web Development",
+    icon: "code",
     certifications: [
       {
         title: "3-Week Web Development Internship",
@@ -16,6 +28,9 @@ const certificationCategories = {
         date: "Jan-Feb 2025",
         description: "Practical exposure to full web stack development; hands-on projects and industry workflows.",
         verified: true,
+        icon: "code",
+        status: "Certified",
+        id: "VGT-2025",
       },
       {
         title: "Web Dev Internship Completion",
@@ -23,6 +38,9 @@ const certificationCategories = {
         date: "Jan 2025",
         description: "Advanced projects with exceptional performance and mentor feedback.",
         verified: true,
+        icon: "award",
+        status: "Certified",
+        id: "MJG-2025",
       },
       {
         title: "Web Dev Course Completion",
@@ -30,11 +48,15 @@ const certificationCategories = {
         date: "Dec 2024",
         description: "15-hour hands-on web development course covering modern front-end and back-end basics.",
         verified: true,
+        icon: "code",
+        status: "Completed",
+        id: "MJG-2024",
       },
     ],
   },
   frontend: {
     title: "Frontend & JavaScript Ecosystem (DevTown Series)",
+    icon: "code",
     certifications: [
       {
         title: "Instagram Auth Clone (7 days)",
@@ -42,6 +64,9 @@ const certificationCategories = {
         date: "2024",
         description: "Node.js, Express and JavaScript-focused hands-on 7-day project (Instagram Auth clone).",
         verified: true,
+        icon: "code",
+        status: "Completed",
+        id: "DT-2024-001",
       },
       {
         title: "Amazon Clone (7 days)",
@@ -49,6 +74,9 @@ const certificationCategories = {
         date: "2024",
         description: "HTML, CSS and JS mini-project building an Amazon-like storefront.",
         verified: true,
+        icon: "code",
+        status: "Completed",
+        id: "DT-2024-002",
       },
       {
         title: "JS & React Bootcamp",
@@ -56,6 +84,9 @@ const certificationCategories = {
         date: "2024",
         description: "Comprehensive React.js bootcamp (A–Z) covering component patterns and state management.",
         verified: true,
+        icon: "zap",
+        status: "Certified",
+        id: "DT-2024-003",
       },
       {
         title: "Intro to C++ and DSA",
@@ -63,6 +94,9 @@ const certificationCategories = {
         date: "2024",
         description: "Foundations of data structures and algorithms using C++.",
         verified: true,
+        icon: "code",
+        status: "Completed",
+        id: "DT-2024-004",
       },
       {
         title: "Deep Learning & Deployment",
@@ -70,11 +104,15 @@ const certificationCategories = {
         date: "2024",
         description: "Deep learning fundamentals and web deployment workflows.",
         verified: true,
+        icon: "brain",
+        status: "Certified",
+        id: "DT-2024-005",
       },
     ],
   },
   cloud: {
     title: "Cloud & Cybersecurity",
+    icon: "cloud",
     certifications: [
       {
         title: "Microsoft Certified: Azure Fundamentals",
@@ -82,6 +120,9 @@ const certificationCategories = {
         date: "June 2025",
         description: "Score: 900/1000 — Verification ID: Cx35-Dw8X",
         verified: true,
+        icon: "cloud",
+        status: "Certified",
+        id: "Cx35-Dw8X",
       },
       {
         title: "AWS Cloud Practitioner Essentials",
@@ -89,6 +130,9 @@ const certificationCategories = {
         date: "July 2025",
         description: "Core AWS cloud concepts and services (completed July 05, 2025).",
         verified: true,
+        icon: "cloud",
+        status: "Foundational",
+        id: "AWS-2025",
       },
       {
         title: "Getting Started with Amazon Location Service",
@@ -96,6 +140,9 @@ const certificationCategories = {
         date: "July 2025",
         description: "Foundational knowledge of Amazon Location Service (completed July 04, 2025).",
         verified: true,
+        icon: "cloud",
+        status: "Completed",
+        id: "AWS-LOC-2025",
       },
       {
         title: "Cybersecurity Certificate",
@@ -103,11 +150,15 @@ const certificationCategories = {
         date: "June 2025",
         description: "Intro to Cybersecurity (Gov. of India-backed program).",
         verified: true,
+        icon: "security",
+        status: "Completed",
+        id: "SK-2025",
       },
     ],
   },
   aiml: {
     title: "AI/ML & Emerging Tech",
+    icon: "brain",
     certifications: [
       {
         title: "UAS Bootcamp 4.0 – AI/ML for Drones",
@@ -115,6 +166,9 @@ const certificationCategories = {
         date: "2024",
         description: "40+ hours on communication, navigation, and AI for UAVs",
         verified: true,
+        icon: "brain",
+        status: "Certified",
+        id: "UAS-2024",
       },
       {
         title: "GenAI Powered Data Analytics",
@@ -122,6 +176,9 @@ const certificationCategories = {
         date: "2025",
         description: "Hands-on simulation: EDA, risk profiling, AI delinquency prediction, business reporting.",
         verified: true,
+        icon: "brain",
+        status: "Completed",
+        id: "Forage-2025",
       },
       {
         title: "Introduction to Generative AI Concepts",
@@ -129,6 +186,9 @@ const certificationCategories = {
         date: "June 29, 2025",
         description: "Foundational GenAI principles and applications.",
         verified: true,
+        icon: "brain",
+        status: "Foundational",
+        id: "ML-2025",
       },
       {
         title: "Oracle Cloud Infrastructure – AI Foundations",
@@ -136,6 +196,9 @@ const certificationCategories = {
         date: "2025",
         description: "Certified Foundations Associate (valid through Aug 2027); AI in Oracle Cloud.",
         verified: true,
+        icon: "brain",
+        status: "Certified",
+        id: "Oracle-AI-2025",
       },
       {
         title: "Deep Learning & Web Deployment",
@@ -143,11 +206,15 @@ const certificationCategories = {
         date: "2024",
         description: "ML fundamentals + full-stack deployment training",
         verified: true,
+        icon: "brain",
+        status: "Certified",
+        id: "DT-DL-2024",
       },
     ],
   },
   security: {
     title: "Cybersecurity & Others",
+    icon: "security",
     certifications: [
       {
         title: "Cybersecurity Certificate",
@@ -155,13 +222,9 @@ const certificationCategories = {
         date: "June 2025",
         description: "Intro to Cybersecurity, Gov. of India-backed",
         verified: true,
-      },
-      {
-        title: "Winter School: Zero to IoT Hero",
-        issuer: "SAGE University, Indore",
-        date: "Mar 2025",
-        description: "Two-week bootcamp on IoT systems",
-        verified: true,
+        icon: "security",
+        status: "Completed",
+        id: "SK-Cyber-2025",
       },
       {
         title: "Python Workshop",
@@ -169,11 +232,15 @@ const certificationCategories = {
         date: "June 2024",
         description: "Introductory programming workshop",
         verified: true,
+        icon: "code",
+        status: "Completed",
+        id: "SE-2024",
       },
     ],
   },
   iot: {
     title: "IoT, Cross-Platform & Hardware",
+    icon: "iot",
     certifications: [
       {
         title: "Winter School: Zero to IoT Hero",
@@ -181,6 +248,9 @@ const certificationCategories = {
         date: "Mar 2025",
         description: "Two-week bootcamp on IoT systems.",
         verified: true,
+        icon: "iot",
+        status: "Certified",
+        id: "SAGE-IoT-2025",
       },
       {
         title: "Robo Race Participant",
@@ -188,6 +258,9 @@ const certificationCategories = {
         date: "April 2024",
         description: "Robotics competition participation.",
         verified: true,
+        icon: "iot",
+        status: "Completed",
+        id: "SAGE-Robo-2024",
       },
       {
         title: "Google Flutter – Intermediate",
@@ -195,18 +268,25 @@ const certificationCategories = {
         date: "July 5, 2025",
         description: "Intermediate-level Flutter development.",
         verified: true,
+        icon: "code",
+        status: "Certified",
+        id: "IS-Flutter-2025",
       },
     ],
   },
   events: {
     title: "Events, Symposiums & Soft Skills",
+    icon: "award",
     certifications: [
       {
-        title: "SAGE Symposium 2.0",
+        title: "IIT Symposium 2.0",
         issuer: "IIT Indore",
         date: "2024-2025",
         description: "Knowledge exchange and speaker engagement.",
         verified: true,
+        icon: "award",
+        status: "Completed",
+        id: "IIT-Sym-2025",
       },
       {
         title: "Startup Spark 2024",
@@ -214,6 +294,9 @@ const certificationCategories = {
         date: "2024",
         description: "Participated in entrepreneurship & innovation summit.",
         verified: true,
+        icon: "award",
+        status: "Completed",
+        id: "SAGE-Spark-2024",
       },
       {
         title: "Appreciation Awards (x3)",
@@ -221,6 +304,9 @@ const certificationCategories = {
         date: "Feb 2024",
         description: "For community contributions and support.",
         verified: true,
+        icon: "award",
+        status: "Completed",
+        id: "DT-Awards-2024",
       },
       {
         title: "Expert Session – Java Programming",
@@ -228,6 +314,9 @@ const certificationCategories = {
         date: "May 7, 2024",
         description: "Industry-oriented Java session.",
         verified: true,
+        icon: "learning",
+        status: "Completed",
+        id: "SAGE-Java-2024",
       },
       {
         title: "Expert Session – Python Programming",
@@ -235,73 +324,125 @@ const certificationCategories = {
         date: "May 8, 2024",
         description: "Industry-oriented Python session.",
         verified: true,
+        icon: "learning",
+        status: "Completed",
+        id: "SAGE-Python-2024",
       },
     ],
   },
 }
 
+const mainCredentials = new Set(["Cx35-Dw8X", "AWS-2025", "IIT-Sym-2025", "UAS-2024", "MJG-2025"])
+
 export function CertificationShowcase() {
-  const [activeCategory, setActiveCategory] = useState("fullstack")
+  const getIconComponent = (iconName: string) => {
+    const iconMap: { [key: string]: typeof Award } = {
+      cloud: Cloud,
+      award: Award,
+      brain: Brain,
+      zap: Zap,
+      security: Lock,
+      iot: Radio,
+      code: Code2,
+      learning: BookOpen,
+    }
+    return iconMap[iconName] || Award
+  }
+
+  const getStatusColor = (status: string) => {
+    switch (status) {
+      case "Certified":
+        return "bg-blue-500/20 text-blue-600 dark:text-blue-400"
+      case "Foundational":
+        return "bg-purple-500/20 text-purple-600 dark:text-purple-400"
+      case "Completed":
+        return "bg-green-500/20 text-green-600 dark:text-green-400"
+      default:
+        return "bg-primary/20 text-primary"
+    }
+  }
 
   return (
     <section className="py-20 bg-gradient-to-br from-primary/5 via-background to-muted/40">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-serif font-bold text-primary drop-shadow mb-4">Certifications & Training</h2>
+          <div className="flex items-center justify-center gap-3 mb-4">
+            <Award className="h-10 w-10 text-primary drop-shadow" />
+            <h2 className="text-4xl font-serif font-bold text-primary drop-shadow">Credential Wall</h2>
+          </div>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             <span className="font-semibold text-primary">33+</span> verified certifications across multiple domains, showcasing continuous learning and expertise.
           </p>
         </div>
 
-        <div className="max-w-6xl mx-auto">
-          {/* Category Tabs */}
-          <div className="flex flex-wrap justify-center gap-2 mb-8">
-            {Object.entries(certificationCategories).map(([key, category]) => (
-              <Button
-                key={key}
-                variant={activeCategory === key ? "default" : "outline"}
-                onClick={() => setActiveCategory(key)}
-                className="mb-2 shadow-md rounded-full px-6 py-2 text-base font-medium"
-              >
-                {category.title}
-              </Button>
-            ))}
-          </div>
-
-          {/* Certifications Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {certificationCategories[activeCategory as keyof typeof certificationCategories].certifications.map(
-              (cert, index) => (
-                <Card
-                  key={cert.title}
-                  className="group border-none shadow-xl bg-white/60 dark:bg-card/60 backdrop-blur-lg rounded-2xl transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:bg-primary/10 animate-fade-in"
-                  style={{ animationDelay: `${index * 80}ms` }}
-                >
-                  <CardHeader className="pb-2">
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-2">
-                        <Award className="h-5 w-5 text-primary drop-shadow" />
-                        {cert.verified && <Badge variant="secondary" className="rounded-full px-3 py-1 text-xs">Verified</Badge>}
+        <div className="max-w-7xl mx-auto">
+          {/* Credential Wall Grid - Main Credentials */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {Object.values(certificationCategories)
+              .flatMap((category) => category.certifications)
+              .filter((cert: any) => {
+                const mainCerts = ["Cx35-Dw8X", "AWS-2025", "IIT-Sym-2025", "UAS-2024", "MJG-2025"]
+                return mainCerts.includes(cert.id)
+              })
+              .map(
+              (cert: any, index: number) => {
+                const IconComponent = getIconComponent(cert.icon)
+                return (
+                  <div
+                    key={cert.id}
+                    className="group animate-fade-in"
+                    style={{ animationDelay: `${index * 80}ms` }}
+                  >
+                    <Card className="border-none shadow-lg bg-gradient-to-br from-white via-white/95 to-primary/5 dark:from-slate-900 dark:via-slate-900/95 dark:to-primary/10 rounded-xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:scale-105 h-full flex flex-col">
+                      {/* Icon Section */}
+                      <div className="pt-8 px-6 pb-4 bg-gradient-to-r from-primary/10 to-primary/5 dark:from-primary/20 dark:to-primary/10 flex justify-center items-center min-h-[120px]">
+                        <div className="bg-gradient-to-br from-primary to-primary/70 p-6 rounded-full shadow-lg group-hover:shadow-2xl transition-all duration-300">
+                          <IconComponent className="h-12 w-12 text-white" />
+                        </div>
                       </div>
-                      {/* External link button hidden for now, can be enabled if cert URLs available */}
-                    </div>
-                    <CardTitle className="font-serif text-lg text-foreground leading-tight mt-2 mb-1">
-                      {cert.title}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent className="space-y-2">
-                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                      <Building className="h-4 w-4 text-primary/70" />
-                      <span className="font-medium text-foreground">{cert.issuer}</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                      <Calendar className="h-4 w-4 text-primary/70" />
-                      <span>{cert.date}</span>
-                    </div>
-                    <p className="text-sm text-muted-foreground leading-relaxed mt-1">{cert.description}</p>
-                  </CardContent>
-                </Card>
-              ),
+
+                      {/* Content Section */}
+                      <div className="flex-1 px-6 py-6 flex flex-col">
+                        {/* Status Badge */}
+                        <div className="flex items-center justify-between mb-3">
+                          <Badge className={`rounded-full px-3 py-1 text-xs font-medium ${getStatusColor(cert.status)}`}>
+                            {cert.status}
+                          </Badge>
+                          {cert.verified && (
+                            <div className="flex items-center gap-1 text-xs text-green-600 dark:text-green-400 font-medium">
+                              <span className="inline-flex h-2 w-2 rounded-full bg-green-500"></span>
+                              Verified
+                            </div>
+                          )}
+                        </div>
+
+                        {/* Title */}
+                        <h3 className="font-serif font-bold text-lg text-foreground leading-tight mb-3 group-hover:text-primary transition-colors">
+                          {cert.title}
+                        </h3>
+
+                        {/* Issuer */}
+                        <p className="text-sm text-muted-foreground font-medium mb-1">
+                          {cert.issuer}
+                        </p>
+
+                        {/* Date */}
+                        <p className="text-xs text-muted-foreground mb-4">
+                          {cert.date}
+                        </p>
+
+                        {/* Description */}
+                        <p className="text-xs text-muted-foreground leading-relaxed mb-6 flex-1">
+                          {cert.description}
+                        </p>
+
+                        {/* ID Footer - Hidden */}
+                      </div>
+                    </Card>
+                  </div>
+                )
+              },
             )}
           </div>
         </div>

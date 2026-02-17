@@ -3,6 +3,8 @@
 import { useEffect, useState, useRef } from "react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Award, Code, Coffee, Briefcase, Star, Trophy, Zap, Target } from "lucide-react"
+import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/scroll-reveal"
+import { motion } from "framer-motion"
 
 const stats = [
   {
@@ -118,51 +120,83 @@ function AnimatedNumber({
   }, [isVisible, value, duration,])
 
   return (
-    <div ref={ref} className="text-3xl sm:text-4xl font-serif font-bold">
+    <motion.div 
+      ref={ref} 
+      className="text-3xl sm:text-4xl font-serif font-bold gradient-text"
+      initial={{ scale: 0 }}
+      whileInView={{ scale: 1 }}
+      transition={{ type: "spring", stiffness: 100, damping: 15 }}
+      viewport={{ once: true }}
+    >
       {count}
       {suffix}
-    </div>
+    </motion.div>
   )
 }
 
 export function StatsSection() {
   return (
-    <section className="py-20 bg-muted/30">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-serif font-bold text-foreground mb-4">Achievements & Milestones</h2>
+    <section className="py-20 bg-gradient-to-b from-background via-muted/10 to-background relative overflow-hidden">
+      {/* Animated background elements */}
+      <motion.div
+        className="absolute top-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl"
+        animate={{
+          x: [0, -50, 0],
+          y: [0, -30, 0],
+        }}
+        transition={{ duration: 10, repeat: Infinity }}
+      />
+      <motion.div
+        className="absolute bottom-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl"
+        animate={{
+          x: [0, 50, 0],
+          y: [0, 30, 0],
+        }}
+        transition={{ duration: 12, repeat: Infinity, delay: 1 }}
+      />
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <ScrollReveal direction="up" className="text-center mb-16">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-foreground mb-4">Achievements & Milestones</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             A snapshot of my journey in technology, showcasing the dedication and passion that drives my work.
           </p>
-        </div>
+        </ScrollReveal>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {stats.map((stat, index) => {
+        <StaggerContainer staggerDelay={0.15} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          {stats.map((stat) => {
             const Icon = stat.icon
             return (
-              <Card
-                key={stat.label}
-                className="group hover:shadow-lg transition-all duration-300 hover:scale-105 border-border hover:border-primary/50 bg-card/50 backdrop-blur-sm"
-                style={{ animationDelay: `${index * 100}ms` }}
-              >
-                <CardContent className="p-6 text-center space-y-4">
-                  <div
-                    className={`inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors ${stat.color}`}
+              <StaggerItem key={stat.label} direction="up">
+                <motion.div
+                  whileHover={{ y: -8, scale: 1.02 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 25 }}
+                  className="h-full"
+                >
+                  <Card
+                    className="group hover:shadow-xl transition-all duration-300 border-border/30 hover:border-primary/50 glass-card h-full"
                   >
-                    <Icon className="h-6 w-6" />
-                  </div>
-                  <div className="space-y-2">
-                    <div className={stat.color}>
-                      <AnimatedNumber value={stat.number} suffix={stat.suffix} decimals={stat.decimals || 0} />
-                    </div>
-                    <h3 className="font-serif font-semibold text-foreground">{stat.label}</h3>
-                    <p className="text-sm text-muted-foreground">{stat.description}</p>
-                  </div>
-                </CardContent>
-              </Card>
+                    <CardContent className="p-6 text-center space-y-4 h-full flex flex-col justify-center">
+                      <motion.div
+                        className={`inline-flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 group-hover:from-primary/40 group-hover:to-accent/40 transition-all mx-auto ${stat.color}`}
+                        whileHover={{ rotate: 15, scale: 1.1 }}
+                      >
+                        <Icon className="h-6 w-6" />
+                      </motion.div>
+                      <div className="space-y-2">
+                        <div className={stat.color}>
+                          <AnimatedNumber value={stat.number} suffix={stat.suffix} decimals={stat.decimals || 0} />
+                        </div>
+                        <h3 className="font-serif font-semibold text-foreground text-sm sm:text-base">{stat.label}</h3>
+                        <p className="text-xs sm:text-sm text-muted-foreground">{stat.description}</p>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              </StaggerItem>
             )
           })}
-        </div>
+        </StaggerContainer>
       </div>
     </section>
   )

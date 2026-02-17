@@ -8,6 +8,7 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { Menu, Sun, Moon, Download } from "lucide-react"
 import { useTheme } from "next-themes"
 import { cn } from "@/lib/utils"
+import { motion } from "framer-motion"
 
 const navigation = [
   { name: "Home", href: "/" },
@@ -22,8 +23,13 @@ const navigation = [
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const [mounted, setMounted] = useState(false)
   const pathname = usePathname()
   const { theme, setTheme } = useTheme()
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   useEffect(() => {
     const handleScroll = () => {
@@ -33,103 +39,179 @@ export function Navigation() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  const handleDownloadResume = () => {
-    // fallback for non-anchor interactions - open resume in new tab
-    window.open('/Cherag_Saxena_Resume.pdf', '_blank')
-  }
-
   return (
     <header
       className={cn(
-        "fixed top-0 w-full z-50 transition-all duration-300",
-        scrolled ? "bg-background/95 backdrop-blur-md border-b border-border shadow-sm" : "bg-transparent",
+        "fixed top-0 w-full z-50 transition-all duration-300 backdrop-blur-md",
+        scrolled 
+          ? "glass shadow-lg bg-background/80" 
+          : "bg-transparent",
       )}
     >
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link
-            href="/"
-            className="flex items-center space-x-2 font-serif font-bold text-xl text-primary hover:text-accent transition-colors"
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
           >
-            <div className="w-8 h-8 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center text-white font-bold">
-              C
-            </div>
-            <span>Cherag Saxena</span>
-          </Link>
+            <Link
+              href="/"
+              className="flex items-center space-x-2 font-serif font-bold text-xl text-primary hover:text-accent transition-colors duration-300 group"
+            >
+              <motion.div 
+                className="w-8 h-8 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center text-primary-foreground font-bold group-hover:shadow-lg group-hover:shadow-primary/50"
+                whileHover={{ scale: 1.1, rotate: 5 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
+                C
+              </motion.div>
+              <span className="hidden sm:inline">Cherag Saxena</span>
+            </Link>
+          </motion.div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            {navigation.map((item) => (
-              <Link
+            {navigation.map((item, index) => (
+              <motion.div
                 key={item.name}
-                href={item.href}
-                className={cn(
-                  "text-sm font-medium transition-colors hover:text-primary relative",
-                  pathname === item.href ? "text-primary" : "text-muted-foreground",
-                )}
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.05 }}
               >
-                {item.name}
-                {pathname === item.href && (
-                  <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary rounded-full" />
-                )}
-              </Link>
+                <Link
+                  href={item.href}
+                  className={cn(
+                    "text-sm font-medium transition-all duration-300 relative group",
+                    pathname === item.href 
+                      ? "text-primary" 
+                      : "text-muted-foreground hover:text-primary",
+                  )}
+                >
+                  {item.name}
+                  <motion.div
+                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-primary to-accent rounded-full"
+                    initial={{ scaleX: pathname === item.href ? 1 : 0 }}
+                    animate={{ scaleX: pathname === item.href ? 1 : 0 }}
+                    transition={{ duration: 0.3 }}
+                    style={{ originX: 0 }}
+                  />
+                </Link>
+              </motion.div>
             ))}
           </div>
 
           {/* Desktop Actions */}
           <div className="hidden md:flex items-center space-x-4">
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              className="hover:bg-primary/10"
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
             >
-              <Sun className="h-4 w-4 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-              <Moon className="absolute h-4 w-4 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-              <span className="sr-only">Toggle theme</span>
-            </Button>
-            <Button variant="outline" size="sm" className="hover:bg-primary hover:text-primary-foreground transition-colors bg-transparent">
-              <a href="/Cherag_Saxena_Resume.pdf" download className="flex items-center">
-                <Download className="h-4 w-4 mr-2" />
-                Resume
-              </a>
-            </Button>
-            <Button asChild className="bg-primary hover:bg-primary/90 text-primary-foreground animate-pulse-glow">
-              <Link href="/contact">Hire Me</Link>
-            </Button>
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                className="hover:bg-primary/20 hover:text-primary transition-all duration-300 relative group"
+              >
+                <Sun className="h-4 w-4 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100 absolute group-hover:rotate-0 group-hover:scale-100" />
+                <Moon className="h-4 w-4 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+                <span className="sr-only">Toggle theme</span>
+              </Button>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.35 }}
+            >
+              <Button 
+                variant="outline" 
+                size="sm" 
+                asChild
+                className="hover:bg-primary hover:text-primary-foreground transition-all duration-300 glass border-primary/30 hover:border-primary group text-primary"
+              >
+                <a href="/Cherag_Saxena_Resume.pdf" target="_blank" rel="noopener noreferrer" download className="flex items-center">
+                  <Download className="h-4 w-4 mr-2 group-hover:animate-bounce" />
+                  Resume
+                </a>
+              </Button>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+            >
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Button asChild className="bg-gradient-to-r from-primary to-accent hover:shadow-lg hover:shadow-primary/40 text-primary-foreground transition-all duration-300 animate-pulse-glow">
+                  <Link href="/contact">
+                    Hire Me
+                    <span className="ml-2">→</span>
+                  </Link>
+                </Button>
+              </motion.div>
+            </motion.div>
           </div>
 
           {/* Mobile Navigation */}
           <div className="md:hidden flex items-center space-x-2">
-            <Button variant="ghost" size="icon" onClick={() => setTheme(theme === "dark" ? "light" : "dark")}>
+            <Button 
+              variant="ghost" 
+              size="icon" 
+              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              className="hover:bg-primary/20"
+            >
               <Sun className="h-4 w-4 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
               <Moon className="absolute h-4 w-4 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
             </Button>
+            {mounted && (
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild>
-                <Button variant="ghost" size="icon">
+                <Button variant="ghost" size="icon" className="hover:bg-primary/20">
                   <Menu className="h-5 w-5" />
                   <span className="sr-only">Open menu</span>
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="w-[300px] sm:w-[400px]">
-                <div className="flex flex-col space-y-4 mt-8">
-                  {navigation.map((item) => (
-                    <Link
+              <SheetContent side="right" className="w-[300px] sm:w-[400px] glass">
+                <motion.div 
+                  className="flex flex-col space-y-4 mt-8"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3, staggerChildren: 0.05 }}
+                >
+                  {navigation.map((item, index) => (
+                    <motion.div
                       key={item.name}
-                      href={item.href}
-                      onClick={() => setIsOpen(false)}
-                      className={cn(
-                        "text-lg font-medium transition-colors hover:text-primary px-4 py-2 rounded-lg",
-                        pathname === item.href ? "text-primary bg-primary/10" : "text-muted-foreground hover:bg-muted",
-                      )}
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.3, delay: index * 0.05 }}
                     >
-                      {item.name}
-                    </Link>
+                      <Link
+                        href={item.href}
+                        onClick={() => setIsOpen(false)}
+                        className={cn(
+                          "text-lg font-medium transition-all duration-300 px-4 py-2 rounded-lg block",
+                          pathname === item.href 
+                            ? "text-primary bg-primary/10 glass-card" 
+                            : "text-muted-foreground hover:text-primary hover:bg-muted/50",
+                        )}
+                      >
+                        {item.name}
+                      </Link>
+                    </motion.div>
                   ))}
-                  <div className="border-t pt-4 space-y-2">
-                    <Button variant="outline" className="w-full justify-start bg-transparent">
+                  <motion.div 
+                    className="border-t border-border/40 pt-4 space-y-2"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.3, delay: 0.3 }}
+                  >
+                    <Button variant="outline" asChild className="w-full justify-start glass border-primary/30 hover:border-primary">
                       <a href="/Cherag_Saxena_Resume.pdf" download className="flex items-center w-full">
                         <Download className="h-4 w-4 mr-2" />
                         Download Resume
@@ -140,10 +222,16 @@ export function Navigation() {
                         Hire Me
                       </Link>
                     </Button>
-                  </div>
-                </div>
+                  </motion.div>
+                </motion.div>
               </SheetContent>
             </Sheet>
+            )}
+            {!mounted && (
+              <Button variant="ghost" size="icon" className="hover:bg-primary/20">
+                <Menu className="h-5 w-5" />
+              </Button>
+            )}
           </div>
         </div>
       </nav>

@@ -38,7 +38,7 @@ export function Achievements() {
     <section className="py-20 bg-muted/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-serif font-bold text-foreground mb-4">Achievements & Recognition</h2>
+          <h2 className="text-[clamp(1.5rem,3.5vw,2.5rem)] font-serif font-bold text-foreground mb-4">Achievements & Recognition</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Milestones and recognition that reflect my commitment to excellence and continuous growth.
           </p>

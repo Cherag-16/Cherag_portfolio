@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Link from "next/link"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
@@ -15,10 +15,37 @@ export function ProjectsGrid() {
   const [selectedCategory, setSelectedCategory] = useState("All")
   const [hoveredProject, setHoveredProject] = useState<number | null>(null)
 
+  useEffect(() => {
+    // Restore scroll position when returning to this page
+    const savedScrollPos = sessionStorage.getItem("portfolioScrollPos")
+    if (savedScrollPos) {
+      window.scrollTo(0, parseInt(savedScrollPos))
+      sessionStorage.removeItem("portfolioScrollPos")
+    }
+  }, [])
+
+  const handleProjectClick = () => {
+    // Save current scroll position before navigating
+    sessionStorage.setItem("portfolioScrollPos", window.scrollY.toString())
+  }
+
   const filteredProjects = projects.filter((project: any) => {
     if (selectedCategory === 'All') return true
-    if (selectedCategory === 'Fullstack') return project.technologies?.length && project.technologies.includes('Node.js')
-    if (selectedCategory === 'Frontend') return project.technologies?.length && project.technologies.includes('React')
+    if (selectedCategory === 'Fullstack') {
+      return (
+        project.fullstack === true
+      )
+    }
+    if (selectedCategory === 'Frontend') {
+      // Treat as frontend when not explicitly marked fullstack
+      const isFull = project.fullstack === true
+      return (
+        !isFull && (
+          (project.technologies?.includes('React')) ||
+          (project.techStack?.includes('React'))
+        )
+      )
+    }
     return true
   })
 
@@ -56,7 +83,7 @@ export function ProjectsGrid() {
               onMouseLeave={() => setHoveredProject(null)}
             >
               <div className="relative overflow-hidden">
-                <Link href={`/portfolio/${project.slug}`} className="block">
+                <Link onClick={handleProjectClick} href={`/portfolio/${project.slug}`} className="block">
                   <img src={project.images?.[0] || project.image || "/placeholder.svg"} alt={project.title} className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110" />
                 </Link>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -84,7 +111,7 @@ export function ProjectsGrid() {
                 <div className="flex items-start justify-between">
                   <div>
                     <CardTitle className="font-serif text-xl group-hover:text-primary transition-colors">
-                      <Link href={`/portfolio/${project.slug}`}>{project.title}</Link>
+                      <Link onClick={handleProjectClick} href={`/portfolio/${project.slug}`}>{project.title}</Link>
                     </CardTitle>
                     <div className="flex items-center space-x-2 mt-2">
                       <Badge variant="outline">{project.category || (project.technologies?.includes('Node.js') ? 'Fullstack' : 'Frontend')}</Badge>
@@ -98,7 +125,7 @@ export function ProjectsGrid() {
               </CardHeader>
 
               <CardContent className="space-y-4">
-                <Link href={`/portfolio/${project.slug}`} className="text-muted-foreground block text-sm leading-relaxed">{project.shortDescription || project.description}</Link>
+                <Link onClick={handleProjectClick} href={`/portfolio/${project.slug}`} className="text-muted-foreground block text-sm leading-relaxed">{project.shortDescription || project.description}</Link>
 
                 <div className="flex flex-wrap gap-2">
                   {(project.technologies || []).map((tech: string) => (
