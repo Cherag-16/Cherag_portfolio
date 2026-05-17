@@ -7,8 +7,19 @@
     "problem": "The client lacked a centralized digital presence, making it difficult to build brand authority or capture online inquiries. The existing process for client onboarding was entirely manual, and there was no mobile-responsive destination for potential partners to view their service offerings or company credentials.",
     "solution": "I engineered a responsive, high-performance website with a focus on user conversion and intuitive navigation. By implementing a clean UI and integrated lead-capture forms, I streamlined the communication bridge between the client and their customers, ensuring a seamless experience across all device types.",
     "role": "Frontend Developer & Project Lead",
-    "techStack": ["HTML", "CSS", "JavaScript", "Responsive Design", "Performance Optimization"],
-    "challenges": ["Image optimization for fast load times", "Cross-browser compatibility testing", "End-to-end deployment to production server", "SEO-friendly architecture"],
+    "techStack": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "Responsive Design",
+      "Performance Optimization"
+    ],
+    "challenges": [
+      "Image optimization for fast load times",
+      "Cross-browser compatibility testing",
+      "End-to-end deployment to production server",
+      "SEO-friendly architecture"
+    ],
     "images": ["/indelhi.png"],
     "repo": "",
     "liveLink": "https://www.indelhincr.com/",
@@ -26,10 +37,23 @@
     "problem": "Many users struggle with overspending due to a lack of immediate visibility into their daily transactions and budget limits. Existing manual methods, like spreadsheets or paper logs, are often cumbersome, inaccessible on the go, and fail to provide instant visual feedback on spending habits.",
     "solution": "I designed a streamlined, mobile-first application that simplifies financial management through an intuitive 'Add-and-Track' interface. The solution features automated balance calculations, a historical transaction log, and a clean UI that removes the friction from daily expense reporting.",
     "role": "Full-Stack Developer (Lead)",
-    "techStack": ["React", "Node.js", "Express", "MongoDB", "JavaScript", "Tailwind CSS", "Netlify"],
-    "challenges": ["Dynamic state management for real-time balance updates", "Local storage integration for data persistence", "Responsive CSS layout for cross-device utility", "Continuous integration deployment"],
+    "techStack": [
+      "React",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "JavaScript",
+      "Tailwind CSS",
+      "Netlify"
+    ],
+    "challenges": [
+      "Dynamic state management for real-time balance updates",
+      "Local storage integration for data persistence",
+      "Responsive CSS layout for cross-device utility",
+      "Continuous integration deployment"
+    ],
     "images": ["/TrackMyExpenses.png"],
-    "repo": "",
+    "repo": "Private Repository",
     "liveLink": "https://trackmyexpensess.netlify.app/",
     "featured": true,
     "fullstack": true,
@@ -45,16 +69,69 @@
     "problem": "Self-taught developers often struggle with 'tutorial hell,' where they can follow instructions but fail to debug or understand logic in their own unique projects. Existing AI tools are often too generic, whereas human mentorship is expensive and not scalable, leaving a need for a specialized, accessible AI mentor tailored for coding.",
     "solution": "I led the architectural design and implementation of a centralized AI hub that offers interactive code analysis and personalized feedback loops. By coordinating the frontend and backend development cycles, I ensured the platform delivered instant, context-aware solutions, helping users resolve complex logic issues while learning the underlying principles.",
     "role": "Project Lead & Lead Developer",
-    "techStack": ["MERN Stack", "OpenAI API", "Gemini API", "React", "Node.js", "Express", "MongoDB", "Netlify"],
-    "challenges": ["Secure user authentication system", "Dynamic dashboard for tracking user progress", "Complete SDLC management", "High performance and scalable codebase", "AI integration and context-aware responses"],
-    "images": ["/placeholder.svg"],
-    "repo": "",
-    "demo": "",
+    "techStack": [
+      "MERN Stack",
+      "OpenAI API",
+      "Gemini API",
+      "React",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "Netlify"
+    ],
+    "challenges": [
+      "Secure user authentication system",
+      "Dynamic dashboard for tracking user progress",
+      "Complete SDLC management",
+      "High performance and scalable codebase",
+      "AI integration and context-aware responses"
+    ],
+    "images": ["/code_mentor_AI.png"],
+    "repo": "Private Repository",
+    "liveLink": "https://code-mentorai.netlify.app/",
     "featured": true,
     "fullstack": true,
     "duration": "4 months",
     "team": "Team"
   },
+
+  {
+  "slug": "dhun-ai",
+  "title": "Dhun AI — Indian Classical Music Composition System",
+  "shortDescription": "An AI-powered system that composes classical Indian music (dhuns) from Hindi lyrics using raag theory, mood detection, and real-time audio synthesis.",
+  "intro": "Dhun AI is a sophisticated full-stack application that bridges ancient Indian classical music theory with modern artificial intelligence. Users input Hindi lyrics and the system — powered by Groq AI for mood detection and a custom raag-based melody engine — generates authentic classical compositions in real time. The platform supports 6 raags, 5 instruments, live audio playback via Web Audio API, and WAV export. Built end-to-end with Next.js, Supabase, and Tone.js, Dhun AI is one of the most culturally unique AI projects in the Indian developer space.",
+  "problem": "Indian classical music (raag-based composition) follows complex mathematical and emotional rules that take decades to master. There is no modern, accessible digital tool that lets everyday users — especially Hindi speakers — experience the process of composing a classical dhun from their own lyrics. Existing AI music tools are Western-centric and completely ignore the depth of Indian raag theory.",
+  "solution": "Built a full-stack AI music composition platform that implements genuine raag theory — aroha, avaroha, vadi, samvadi note rules — combined with Groq AI for lyric mood analysis. The system maps detected emotions to appropriate raags, generates note sequences respecting classical constraints, and synthesizes real-time audio with oscillator-based instrument simulation. Users can compose, visualize, play, and export their dhuns — all in the browser.",
+  "role": "Project Architect, Lead & Lead Developer",
+  "techStack": [
+    "Next.js 16",
+    "React",
+    "TailwindCSS v4",
+    "Tone.js",
+    "Web Audio API",
+    "Groq AI",
+    "Supabase (PostgreSQL)",
+    "shadcn/ui",
+    "Lucide React",
+    "Vercel"
+  ],
+  "challenges": [
+    "Implementing authentic raag theory algorithms — aroha/avaroha patterns, vadi/samvadi note emphasis — mathematically in JavaScript",
+    "Real-time oscillator-based audio synthesis with ADSR envelopes, reverb, and low-pass filters for 5 different Indian instruments",
+    "Integrating Groq AI for Hindi lyric mood detection and mapping emotions to appropriate raags",
+    "Designing a multi-page responsive UI that respects Indian classical aesthetics while staying modern",
+    "Building a complete backend with 10+ API routes for composition, analysis, training, gallery, and export",
+    "WAV file export from browser-rendered Web Audio API output",
+    "Supabase PostgreSQL schema design for raags, instruments, composed songs, and training data with fallback mock data"
+  ],
+  "images": ["/dhun.png"],
+  "repo": "Private Repository",
+  "liveLink": "Not deployed yet",
+  "featured": true,
+  "fullstack": true,
+  "duration": "Ongoing",
+  "team": "Team"
+},
 
   {
     "slug": "real-time-chat-platform",
@@ -63,11 +140,63 @@
     "problem": "Teams need low-latency chat with presence and reliable delivery.",
     "role": "Frontend + Realtime UX",
     "techStack": ["React", "Socket.IO", "Redis", "Node.js"],
-    "challenges": ["Realtime presence across nodes", "Message ordering", "Optimizing bandwidth"],
+    "challenges": [
+      "Realtime presence across nodes",
+      "Message ordering",
+      "Optimizing bandwidth"
+    ],
     "solution": "Socket.IO with Redis pub/sub for presence; optimistic UI updates and replay on reconnect.",
     "images": ["/chatbox.png"],
     "repo": "",
     "liveLink": "https://chatbox-frontend.netlify.app/",
     "featured": false
+  },
+
+  {
+    "slug": "numerology-calculator",
+    "title": "Hindu Vedic Numerology Calculator",
+    "shortDescription": "A spiritual numerology calculator using the ancient Chaldean system to reveal insights from names and mobile numbers.",
+    "intro": "The Hindu Vedic Numerology Calculator is a unique web application that merges ancient Chaldean numerology with modern web technology. Users can discover their spiritual numerology number by entering their name or mobile number — the app then calculates and reveals deep spiritual insights based on Vedic wisdom. A niche, creative project that stands out in any portfolio.",
+    "problem": "Numerology is deeply rooted in Indian culture but there are very few clean, modern digital tools that make Vedic numerology accessible. Existing tools are outdated, hard to use, or lack depth in their calculations and explanations.",
+    "solution": "Built a focused, beautifully designed calculator that implements the Chaldean numerology system for both names and mobile numbers. The app provides instant spiritual number calculations with meaningful insights, wrapped in an aesthetic interface that respects the cultural and spiritual context of the subject.",
+    "role": "Solo Developer",
+    "techStack": ["React", "Next.js", "JavaScript", "Tailwind CSS", "Vercel"],
+    "challenges": [
+      "Accurately implementing the Chaldean numerology algorithm for name and number calculation",
+      "Designing a UI that feels spiritual and respectful of Hindu/Vedic aesthetics",
+      "Handling edge cases in number and name inputs",
+      "Making results meaningful and insightful, not just a number output"
+    ],
+    "images": ["/name_calculator.png"],
+    "repo": "https://github.com/cherag-16/numerology-calculator",
+    "liveLink": "https://numerology-name-mobile-calculator.vercel.app/",
+    "featured": false,
+    "fullstack": false,
+    "duration": "1-2 weeks",
+    "team": "Solo"
+  },
+
+  {
+    "slug": "weather-forecast",
+    "title": "Weather Forecast App",
+    "shortDescription": "A real-time weather forecasting web app delivering accurate weather data and forecasts for any location worldwide.",
+    "intro": "Weather Forecast is a clean, responsive web application that provides real-time weather information for any city or location. Built with a focus on simplicity and accuracy, it fetches live data to display current conditions, temperature, humidity, wind speed, and multi-day forecasts in an intuitive interface.",
+    "problem": "Most weather apps are cluttered with ads and unnecessary features. Users just want quick, accurate weather data for any location without friction — a clean interface that loads fast and works on any device.",
+    "solution": "Built a lightweight, fast-loading weather app that integrates with a live weather API to fetch real-time data. The UI is minimal and focused — users simply search a city and instantly get all essential weather details including current conditions and forecast trends.",
+    "role": "Solo Developer",
+    "techStack": ["HTML", "CSS", "JavaScript", "Weather API", "Netlify"],
+    "challenges": [
+      "Integrating and handling real-time API responses efficiently",
+      "Graceful error handling for invalid city names or API failures",
+      "Responsive layout across all screen sizes",
+      "Clean UI with dynamic background/icon changes based on weather conditions"
+    ],
+    "images": ["/weather.png"],
+    "repo": "https://github.com/cherag-16/weather-forecast",
+    "liveLink": "https://weather-forcastss.netlify.app/",
+    "featured": false,
+    "fullstack": false,
+    "duration": "1-2 weeks",
+    "team": "Solo"
   }
 ]

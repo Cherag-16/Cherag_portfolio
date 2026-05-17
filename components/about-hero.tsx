@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 import { Button } from "@/components/ui/button"
-import { Download, MapPin, GraduationCap, Calendar } from "lucide-react"
+import { Download, MapPin, GraduationCap, Calendar, Heart, Rocket, Database } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 export function AboutHero() {
@@ -27,7 +27,7 @@ export function AboutHero() {
                 About <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Me</span>
               </h1>
               <p className="text-xl text-muted-foreground leading-relaxed">
-                Passionate developer crafting digital experiences with code, creativity, and dedication.
+                Builder by instinct. Problem-solver by habit. Designer at heart. Developer by choice.
               </p>
             </div>
 
@@ -67,18 +67,114 @@ export function AboutHero() {
 
           {/* Image */}
           <div className={cn("relative", isVisible ? "animate-fade-in-up delay-200" : "opacity-0")}>
-            <div className="relative w-full max-w-md mx-auto">
-              <div className="aspect-square rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 p-8">
-                <img
-                  src="/professional-developer-portrait.webp"
-                  alt="Cherag Saxena"
-                  className="w-full h-full object-cover rounded-xl"
-                />
+            <style>{`
+              @keyframes pulse-dot {
+                0%, 100% { box-shadow: 0 0 0 0 rgba(99, 153, 34, 0.4); }
+                50% { box-shadow: 0 0 0 5px rgba(99, 153, 34, 0); }
+              }
+              
+              .dot-available {
+                width: 8px;
+                height: 8px;
+                border-radius: 50%;
+                background: #639922;
+                animation: pulse-dot 2s ease-in-out infinite;
+              }
+            `}</style>
+            
+            <div className="relative w-full max-w-md mx-auto" style={{ position: "relative", padding: "30px" }}>
+              {/* Photo Frame (outer + inner for layered frame look) */}
+              <div
+                style={{
+                  borderRadius: "40px",
+                  padding: "8px",
+                  width: "320px",
+                  height: "400px",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  background: "transparent",
+                  boxShadow: "inset 0 0 0 6px rgba(255,255,255,0.02), 0 6px 30px rgba(0,0,0,0.6)",
+                  border: "1px solid rgba(255,255,255,0.04)",
+                  position: "relative",
+                }}
+              >
+                <div
+                  style={{
+                    borderRadius: "28px",
+                    background: "linear-gradient(135deg, #EEF2FF, #E6F1FB)",
+                    border: "1.5px solid rgba(175,169,236,0.4)",
+                    overflow: "hidden",
+                    width: "300px",
+                    height: "380px",
+                    position: "relative",
+                  }}
+                >
+                  <img
+                    src="/cherag.png"
+                    alt="Cherag Saxena"
+                    style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                  />
+                  {/* Name overlay at bottom */}
+                  <div
+                    style={{
+                      position: "absolute",
+                      bottom: 0,
+                      left: 0,
+                      right: 0,
+                      background: "linear-gradient(transparent, rgba(20,18,40,0.7))",
+                      padding: "14px 18px",
+                    }}
+                  >
+                    <p style={{ color: "#fff", fontWeight: 500, margin: 0 }}>Cherag Saxena</p>
+                    <p style={{ color: "rgba(255,255,255,0.7)", fontSize: "12px", margin: 0 }}>Indore, India</p>
+                  </div>
+                </div>
               </div>
-              <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-primary rounded-full flex items-center justify-center text-white font-serif font-bold text-lg">
-                28+
-                <br />
-                Certs
+
+              {/* Available to hire badge */}
+              <div
+                className="absolute z-20 whitespace-nowrap rounded-2xl px-4 py-2 flex items-center gap-3 shadow-lg bg-white/10 backdrop-blur-md border border-white/20 dark:bg-white/5 dark:border-white/10"
+                style={{ top: 30, right: -20 }}
+              >
+                <div className="h-2.5 w-2.5 rounded-full bg-green-500 ring-4 ring-green-100/40 dark:ring-green-900/40" aria-hidden />
+                <div>
+                  <p className="text-xs font-medium text-muted-foreground">Available to hire</p>
+                </div>
+              </div>
+
+              {/* Building badge */}
+              <div
+                className="absolute z-20 whitespace-nowrap rounded-2xl px-5 py-2 flex items-center gap-3 shadow-md bg-white/10 backdrop-blur-md border border-white/20 dark:bg-white/5 dark:border-white/10"
+                style={{ top: 80, left: -64 }}
+              >
+                <Rocket className="h-4 w-4 text-amber-500" aria-hidden />
+                <div>
+                  <p className="text-xs font-medium text-muted-foreground">Currently building</p>
+                  <p className="text-sm font-semibold text-foreground">Code Mentor AI</p>
+                </div>
+              </div>
+
+              {/* AI and integration badge */}
+              <div
+                className="absolute z-20 whitespace-nowrap rounded-2xl px-4 py-2 flex items-center gap-3 shadow-lg bg-white/10 backdrop-blur-md border border-white/20 dark:bg-white/5 dark:border-white/10"
+                style={{ top: 180, right: -80 }}
+              >
+                <div>
+                  <p className="text-xs font-medium text-muted-foreground">Focus</p>
+                  <p className="text-sm font-semibold text-foreground">⚡ Wired for AI & Integration</p>
+                </div>
+              </div>
+
+              {/* MERN badge */}
+              <div
+                className="absolute z-20 whitespace-nowrap rounded-2xl px-4 py-2 flex items-center gap-3 shadow-lg bg-white/10 backdrop-blur-md border border-white/20 dark:bg-white/5 dark:border-white/10"
+                style={{ bottom: -18, left: '50%', transform: 'translateX(-50%)' }}
+              >
+                <Database className="h-4 w-4 text-violet-600" aria-hidden />
+                <div>
+                  <p className="text-sm font-semibold text-foreground">MERN Stack</p>
+                </div>
               </div>
             </div>
           </div>

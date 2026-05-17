@@ -134,9 +134,9 @@ export function HeroSection() {
               className="text-[clamp(2rem,5vw,4rem)] font-serif font-black text-foreground leading-tight"
               variants={itemVariants}
             >
-              Crafting <span className="gradient-text">Code</span>,
+              Building. <span className="gradient-text">Solving.</span>
               <br />
-              Building <span className="gradient-text">Futures</span>
+              Designing.<span className="gradient-text">Shipping.</span>
             </motion.h1>
           </motion.div>
 
@@ -147,9 +147,12 @@ export function HeroSection() {
               <span className="font-semibold text-primary font-serif">
                 Cherag Saxena
               </span>{" "}
-              - a passionate Full Stack Developer with{" "}
+              - a Full Stack Developer who builds things that actually work. I
+              love solving hard problems, crafting clean interfaces, and
+              shipping full-stack products — {" "}
               <span className="font-semibold text-accent">
-                33+ certifications
+                from real client websites to
+              AI-powered platforms.
               </span>{" "}
               and a love for innovation.
             </p>

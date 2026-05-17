@@ -7,7 +7,8 @@ const techStacks = [
     description: "Modern UI/UX development with responsive design",
     technologies: [
       { name: "React.js", level: "Advanced", color: "bg-blue-500" },
-      { name: "JavaScript/TypeScript", level: "Advanced", color: "bg-yellow-500" },
+      { name: "JavaScript", level: "Advanced", color: "bg-yellow-500" },
+      { name: "TypeScript", level: "Advanced", color: "bg-green-500" },
       { name: "HTML5/CSS3", level: "Expert", color: "bg-orange-500" },
       { name: "Tailwind CSS", level: "Advanced", color: "bg-cyan-500" },
       { name: "Next.js", level: "Intermediate", color: "bg-gray-800" },
@@ -16,9 +17,11 @@ const techStacks = [
   },
   {
     category: "Backend",
-    description: "Server-side development and API design",
+    description: "Server-side development, API design, and data-driven systems",
     technologies: [
       { name: "Node.js", level: "Advanced", color: "bg-green-500" },
+      { name: "Python", level: "Intermediate", color: "bg-sky-500" },
+      { name: "Data Science", level: "Intermediate", color: "bg-teal-500" },
       { name: "Express.js", level: "Advanced", color: "bg-gray-600" },
       { name: "MongoDB", level: "Intermediate", color: "bg-green-600" },
       { name: "RESTful APIs", level: "Advanced", color: "bg-blue-600" },
@@ -46,7 +49,7 @@ const techStacks = [
     technologies: [
       { name: "AWS", level: "Intermediate", color: "bg-yellow-600" },
       { name: "Microsoft Azure", level: "Intermediate", color: "bg-blue-700" },
-      { name: "Firebase", level: "Beginner", color: "bg-yellow-500" },
+      { name: "Firebase", level: "Intermediate", color: "bg-yellow-500" },
       { name: "API Integration", level: "Advanced", color: "bg-green-500" },
       { name: "Third-party Services", level: "Intermediate", color: "bg-purple-600" },
     ],

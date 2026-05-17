@@ -70,9 +70,9 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning className="dark">
+    <html lang="en" suppressHydrationWarning>
       <head>
-        <meta name="theme-color" content="#0f172a" />
+        <meta name="theme-color" content="#ffffff" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
         <link rel="canonical" href="https://cheragsaxena.com" />
         <style>{`
@@ -80,12 +80,12 @@ html {
   font-family: ${openSans.style.fontFamily};
   --font-sans: ${openSans.variable};
   --font-serif: ${montserrat.variable};
-  color-scheme: dark light;
+  color-scheme: light dark;
 }
         `}</style>
       </head>
-      <body className={`${montserrat.variable} ${openSans.variable} antialiased dark bg-background text-foreground`}>
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange={false}>
+      <body className={`${montserrat.variable} ${openSans.variable} antialiased bg-background text-foreground`}>
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange={false}>
           {children}
         </ThemeProvider>
       </body>

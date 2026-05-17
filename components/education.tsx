@@ -78,6 +78,7 @@ export function Education() {
                     "Computer Networks",
                     "Operating Systems",
                     "Machine Learning",
+                    "Data Science",
                     "Cloud Computing",
                   ].map((course) => (
                     <Badge key={course} variant="secondary" className="text-xs">

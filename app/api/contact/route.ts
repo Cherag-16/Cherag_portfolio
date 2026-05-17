@@ -25,7 +25,7 @@ async function sendMail({ from, subject, html, text, replyTo }: { from: string; 
       pass: SMTP_PASS,
     },
   })
-
+  
   const info = await transporter.sendMail({
     from,
     to: EMAIL_TO,
