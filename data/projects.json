@@ -96,42 +96,74 @@
   },
 
   {
-  "slug": "dhun-ai",
-  "title": "Dhun AI — Indian Classical Music Composition System",
-  "shortDescription": "An AI-powered system that composes classical Indian music (dhuns) from Hindi lyrics using raag theory, mood detection, and real-time audio synthesis.",
-  "intro": "Dhun AI is a sophisticated full-stack application that bridges ancient Indian classical music theory with modern artificial intelligence. Users input Hindi lyrics and the system — powered by Groq AI for mood detection and a custom raag-based melody engine — generates authentic classical compositions in real time. The platform supports 6 raags, 5 instruments, live audio playback via Web Audio API, and WAV export. Built end-to-end with Next.js, Supabase, and Tone.js, Dhun AI is one of the most culturally unique AI projects in the Indian developer space.",
-  "problem": "Indian classical music (raag-based composition) follows complex mathematical and emotional rules that take decades to master. There is no modern, accessible digital tool that lets everyday users — especially Hindi speakers — experience the process of composing a classical dhun from their own lyrics. Existing AI music tools are Western-centric and completely ignore the depth of Indian raag theory.",
-  "solution": "Built a full-stack AI music composition platform that implements genuine raag theory — aroha, avaroha, vadi, samvadi note rules — combined with Groq AI for lyric mood analysis. The system maps detected emotions to appropriate raags, generates note sequences respecting classical constraints, and synthesizes real-time audio with oscillator-based instrument simulation. Users can compose, visualize, play, and export their dhuns — all in the browser.",
-  "role": "Project Architect, Lead & Lead Developer",
-  "techStack": [
-    "Next.js 16",
-    "React",
-    "TailwindCSS v4",
-    "Tone.js",
-    "Web Audio API",
-    "Groq AI",
-    "Supabase (PostgreSQL)",
-    "shadcn/ui",
-    "Lucide React",
-    "Vercel"
-  ],
-  "challenges": [
-    "Implementing authentic raag theory algorithms — aroha/avaroha patterns, vadi/samvadi note emphasis — mathematically in JavaScript",
-    "Real-time oscillator-based audio synthesis with ADSR envelopes, reverb, and low-pass filters for 5 different Indian instruments",
-    "Integrating Groq AI for Hindi lyric mood detection and mapping emotions to appropriate raags",
-    "Designing a multi-page responsive UI that respects Indian classical aesthetics while staying modern",
-    "Building a complete backend with 10+ API routes for composition, analysis, training, gallery, and export",
-    "WAV file export from browser-rendered Web Audio API output",
-    "Supabase PostgreSQL schema design for raags, instruments, composed songs, and training data with fallback mock data"
-  ],
-  "images": ["/dhun.png"],
-  "repo": "Private Repository",
-  "liveLink": "Not deployed yet",
-  "featured": true,
-  "fullstack": true,
-  "duration": "Ongoing",
-  "team": "Team"
-},
+    "slug": "dhun-ai",
+    "title": "Dhun AI — Indian Classical Music Composition System",
+    "shortDescription": "An AI-powered system that composes classical Indian music (dhuns) from Hindi lyrics using raag theory, mood detection, and real-time audio synthesis.",
+    "intro": "Dhun AI is a sophisticated full-stack application that bridges ancient Indian classical music theory with modern artificial intelligence. Users input Hindi lyrics and the system — powered by Groq AI for mood detection and a custom raag-based melody engine — generates authentic classical compositions in real time. The platform supports 6 raags, 5 instruments, live audio playback via Web Audio API, and WAV export. Built end-to-end with Next.js, Supabase, and Tone.js, Dhun AI is one of the most culturally unique AI projects in the Indian developer space.",
+    "problem": "Indian classical music (raag-based composition) follows complex mathematical and emotional rules that take decades to master. There is no modern, accessible digital tool that lets everyday users — especially Hindi speakers — experience the process of composing a classical dhun from their own lyrics. Existing AI music tools are Western-centric and completely ignore the depth of Indian raag theory.",
+    "solution": "Built a full-stack AI music composition platform that implements genuine raag theory — aroha, avaroha, vadi, samvadi note rules — combined with Groq AI for lyric mood analysis. The system maps detected emotions to appropriate raags, generates note sequences respecting classical constraints, and synthesizes real-time audio with oscillator-based instrument simulation. Users can compose, visualize, play, and export their dhuns — all in the browser.",
+    "role": "Project Architect, Lead & Lead Developer",
+    "techStack": [
+      "Next.js 16",
+      "React",
+      "TailwindCSS v4",
+      "Tone.js",
+      "Web Audio API",
+      "Groq AI",
+      "Supabase (PostgreSQL)",
+      "shadcn/ui",
+      "Lucide React",
+      "Vercel"
+    ],
+    "challenges": [
+      "Implementing authentic raag theory algorithms — aroha/avaroha patterns, vadi/samvadi note emphasis — mathematically in JavaScript",
+      "Real-time oscillator-based audio synthesis with ADSR envelopes, reverb, and low-pass filters for 5 different Indian instruments",
+      "Integrating Groq AI for Hindi lyric mood detection and mapping emotions to appropriate raags",
+      "Designing a multi-page responsive UI that respects Indian classical aesthetics while staying modern",
+      "Building a complete backend with 10+ API routes for composition, analysis, training, gallery, and export",
+      "WAV file export from browser-rendered Web Audio API output",
+      "Supabase PostgreSQL schema design for raags, instruments, composed songs, and training data with fallback mock data"
+    ],
+    "images": ["/dhun.png"],
+    "repo": "Private Repository",
+    "liveLink": "Not deployed yet",
+    "featured": true,
+    "fullstack": true,
+    "duration": "Ongoing",
+    "team": "Team"
+  },
+
+  {
+    "slug": "ck-ecommerce",
+    "title": "CK — Premium E-Commerce Platform",
+    "shortDescription": "A fully functional premium e-commerce platform with product listings, categories, deals, cart functionality, and a polished shopping experience.",
+    "intro": "CK is a premium e-commerce web application built to deliver a refined, modern shopping experience. The platform features a curated product catalogue spanning Electronics, Mobiles, Computers, Accessories, and Home Appliances — with product ratings, discount badges, cart functionality, and category-based browsing. Designed and built end-to-end as a frontend showcase project, CK demonstrates real-world e-commerce UI patterns with a clean, conversion-focused design.",
+    "problem": "Most e-commerce UI projects built by students look like basic CRUD apps with no design thought. The challenge was to build something that actually looks and feels like a real premium shopping platform — one that a user could open and immediately trust as a legitimate store.",
+    "solution": "Built a multi-page e-commerce platform with a hero section, featured products grid, category explorer, deals page, and about page. Products include real images, brand names, star ratings, review counts, discount percentages, and dual CTA buttons (Add to Cart / Buy Now). The UI uses a premium black and white color scheme with accent colors, clean typography, and trust signals like '4.8/5 from 10k+ reviews', free shipping, secure payment, and 24/7 support badges.",
+    "role": "Solo Developer",
+    "techStack": [
+      "Next.js",
+      "Supabase (PostgreSQL)",
+      "Tailwind CSS",
+      "v0.dev",
+      "Vercel"
+    ],
+    "challenges": [
+      "Designing a premium, conversion-focused UI that looks like a real e-commerce store",
+      "Building a multi-page structure with Home, Categories, Deals, and About pages",
+      "Implementing product cards with ratings, discount badges, brand tags, and dual CTAs",
+      "Cart state management across the application",
+      "Responsive layout that works across mobile, tablet, and desktop",
+      "Curating realistic product data with pricing, discounts, and imagery"
+    ],
+    "images": ["/ck-ecommerce.png"],
+    "repo": "https://github.com/cherag-16/ck-ecommerce",
+    "liveLink": "https://ck-e-commerce.vercel.app/",
+    "featured": false,
+    "fullstack": true,
+    "duration": "1-2 weeks",
+    "team": "Solo"
+  },
 
   {
     "slug": "real-time-chat-platform",
