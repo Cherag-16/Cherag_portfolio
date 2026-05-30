@@ -57,7 +57,7 @@ export function HeroSection() {
   };
 
   return (
-    <section className="relative min-h-screen w-full overflow-x-hidden flex flex-col pt-24 pb-12">
+    <section className="relative w-full overflow-x-hidden flex flex-col pt-16 pb-16">
       {/* Animated Background Gradient */}
       <motion.div
         className="absolute inset-0 overflow-hidden"
@@ -103,7 +103,7 @@ export function HeroSection() {
 
       <div className="container mx-auto px-4 relative z-10 max-w-7xl w-full">
         <motion.div
-          className="text-center space-y-6 sm:space-y-8 max-w-4xl mx-auto"
+          className="text-center space-y-6 sm:space-y-5 max-w-4xl mx-auto"
           variants={containerVariants}
           initial="hidden"
           animate={isVisible ? "visible" : "hidden"}
@@ -131,7 +131,7 @@ export function HeroSection() {
               </motion.div>
             </motion.div>
             <motion.h1
-              className="text-[clamp(2rem,5vw,4rem)] font-serif font-black text-foreground leading-tight"
+              className="text-[clamp(1.75rem,4vw,3rem)] font-serif font-black text-foreground leading-tight"
               variants={itemVariants}
             >
               Building. <span className="gradient-text">Solving.</span>
@@ -142,21 +142,20 @@ export function HeroSection() {
 
           {/* Subtitle */}
           <motion.div className="space-y-4" variants={itemVariants}>
-            <p className="text-lg sm:text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            <p className="text-sm sm:text-base lg:text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               Hi, I'm{" "}
               <span className="font-semibold text-primary font-serif">
                 Cherag Saxena
               </span>{" "}
               - a Full Stack Developer who builds things that actually work. I
               love solving hard problems, crafting clean interfaces, and
-              shipping full-stack products — {" "}
+              shipping full-stack products —{" "}
               <span className="font-semibold text-accent">
-                from real client websites to
-              AI-powered platforms.
+                from real client websites to AI-powered platforms.
               </span>{" "}
               and a love for innovation.
             </p>
-            <p className="text-base sm:text-lg text-muted-foreground/80 max-w-2xl mx-auto">
+            <p className="text-xs sm:text-sm text-muted-foreground/80 max-w-2xl mx-auto">
               Currently pursuing B.Tech in Computer Engineering at Sage
               University, building amazing web experiences with the MERN stack
               and modern web technologies.
@@ -198,16 +197,16 @@ export function HeroSection() {
                 asChild
                 variant="outline"
                 size="lg"
-                className="w-full sm:w-auto px-8 py-6 text-lg font-semibold border-primary/50 text-primary hover:bg-primary/10 hover:border-primary glass duration-300"
+                className="group w-full sm:w-auto px-8 py-6 text-lg font-semibold border-primary/50 text-primary hover:!bg-primary/10 hover:!border-primary hover:!text-primary glass duration-300"
               >
                 <Link
                   href="/portfolio"
-                  className="inline-flex items-center gap-2"
+                  className="inline-flex items-center gap-2 group-hover:!text-primary"
                 >
                   <span className="relative z-10 transition-all duration-300">
                     View Projects
                   </span>
-                  <Code className="ml-2 h-5 w-5" />
+                  <Code className="ml-2 h-5 w-5 transition-all group-hover:!text-primary" />
                 </Link>
               </Button>
             </motion.div>
@@ -215,7 +214,7 @@ export function HeroSection() {
 
           {/* Quick Stats Preview */}
           <motion.div
-            className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mt-12 max-w-3xl mx-auto"
+            className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mt-6 max-w-3xl mx-auto"
             variants={containerVariants}
           >
             {[
@@ -228,9 +227,9 @@ export function HeroSection() {
                 key={stat.label}
                 variants={statVariants}
                 whileHover={{ y: -5, scale: 1.02 }}
-                className="text-center p-4 sm:p-5 rounded-lg glass-card border border-border/30 hover:border-primary/50 transition-all duration-300 cursor-default group"
+                className="text-center p-3 sm:p-5 rounded-lg glass-card border border-border/30 hover:border-primary/50 transition-all duration-300 cursor-default group"
               >
-                <motion.div className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold gradient-text group-hover:scale-110 transition-transform">
+                <motion.div className="text-2xl sm:text-2xl lg:text-4xl font-serif font-bold gradient-text group-hover:scale-110 transition-transform">
                   {stat.number}
                 </motion.div>
                 <div className="text-xs sm:text-sm text-muted-foreground mt-1">

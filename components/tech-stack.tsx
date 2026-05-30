@@ -38,8 +38,7 @@ const techStacks = [
       { name: "Netlify", level: "Advanced", color: "bg-teal-500" },
       { name: "Vercel", level: "Advanced", color: "bg-black" },
       { name: "Figma", level: "Intermediate", color: "bg-black" },
-
-      // { name: "Postman", level: "Intermediate", color: "bg-orange-600" },
+      { name: "Postman", level: "Intermediate", color: "bg-orange-600" },
       // { name: "Docker", level: "Beginner", color: "bg-blue-400" },
     ],
   },

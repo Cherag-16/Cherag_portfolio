@@ -117,12 +117,12 @@ function AnimatedNumber({
     }
 
     requestAnimationFrame(animate)
-  }, [isVisible, value, duration,])
+  }, [isVisible, value, duration])
 
   return (
-    <motion.div 
-      ref={ref} 
-      className="text-3xl sm:text-4xl font-serif font-bold gradient-text"
+    <motion.div
+      ref={ref}
+      className="text-2xl sm:text-3xl font-serif font-bold gradient-text"
       initial={{ scale: 0 }}
       whileInView={{ scale: 1 }}
       transition={{ type: "spring", stiffness: 100, damping: 15 }}
@@ -136,59 +136,62 @@ function AnimatedNumber({
 
 export function StatsSection() {
   return (
-    <section className="py-20 bg-gradient-to-b from-background via-muted/10 to-background relative overflow-hidden">
+    <section className="pt-4 pb-10 bg-gradient-to-b from-background via-muted/10 to-background relative overflow-hidden">
       {/* Animated background elements */}
       <motion.div
-        className="absolute top-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl"
-        animate={{
-          x: [0, -50, 0],
-          y: [0, -30, 0],
-        }}
+        className="absolute top-0 left-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl"
+        animate={{ x: [0, -40, 0], y: [0, -25, 0] }}
         transition={{ duration: 10, repeat: Infinity }}
       />
       <motion.div
-        className="absolute bottom-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl"
-        animate={{
-          x: [0, 50, 0],
-          y: [0, 30, 0],
-        }}
+        className="absolute bottom-0 right-0 w-64 h-64 bg-accent/5 rounded-full blur-3xl"
+        animate={{ x: [0, 40, 0], y: [0, 25, 0] }}
         transition={{ duration: 12, repeat: Infinity, delay: 1 }}
       />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <ScrollReveal direction="up" className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-foreground mb-4">Achievements & Milestones</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+        <ScrollReveal direction="up" className="text-center mb-8">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-foreground mb-2">
+            Achievements & Milestones
+          </h2>
+          <p className="text-sm sm:text-base text-muted-foreground max-w-xl mx-auto">
             A snapshot of my journey in technology, showcasing the dedication and passion that drives my work.
           </p>
         </ScrollReveal>
 
-        <StaggerContainer staggerDelay={0.15} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+        <StaggerContainer staggerDelay={0.12} className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
           {stats.map((stat) => {
             const Icon = stat.icon
             return (
               <StaggerItem key={stat.label} direction="up">
                 <motion.div
-                  whileHover={{ y: -8, scale: 1.02 }}
+                  whileHover={{ y: -5, scale: 1.02 }}
                   transition={{ type: "spring", stiffness: 300, damping: 25 }}
                   className="h-full"
                 >
-                  <Card
-                    className="group hover:shadow-xl transition-all duration-300 border-border/30 hover:border-primary/50 glass-card h-full"
-                  >
-                    <CardContent className="p-6 text-center space-y-4 h-full flex flex-col justify-center">
+                  <Card className="group hover:shadow-lg transition-all duration-300 border-border/30 hover:border-primary/50 glass-card h-full">
+                    <CardContent className="p-4 text-center space-y-2.5 h-full flex flex-col justify-center">
                       <motion.div
-                        className={`inline-flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 group-hover:from-primary/40 group-hover:to-accent/40 transition-all mx-auto ${stat.color}`}
+                        className={`inline-flex items-center justify-center w-9 h-9 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 group-hover:from-primary/40 group-hover:to-accent/40 transition-all mx-auto ${stat.color}`}
                         whileHover={{ rotate: 15, scale: 1.1 }}
                       >
-                        <Icon className="h-6 w-6" />
+                        <Icon className="h-4 w-4" />
                       </motion.div>
-                      <div className="space-y-2">
+
+                      <div className="space-y-1">
                         <div className={stat.color}>
-                          <AnimatedNumber value={stat.number} suffix={stat.suffix} decimals={stat.decimals || 0} />
+                          <AnimatedNumber
+                            value={stat.number}
+                            suffix={stat.suffix}
+                            decimals={stat.decimals || 0}
+                          />
                         </div>
-                        <h3 className="font-serif font-semibold text-foreground text-sm sm:text-base">{stat.label}</h3>
-                        <p className="text-xs sm:text-sm text-muted-foreground">{stat.description}</p>
+                        <h3 className="font-serif font-semibold text-foreground text-xs sm:text-sm">
+                          {stat.label}
+                        </h3>
+                        <p className="text-xs text-muted-foreground leading-tight">
+                          {stat.description}
+                        </p>
                       </div>
                     </CardContent>
                   </Card>

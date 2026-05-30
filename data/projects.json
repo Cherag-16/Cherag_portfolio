@@ -1,5 +1,77 @@
 [
   {
+    "slug": "dhun-ai",
+    "title": "Dhun AI — Indian Classical Music Composition System",
+    "shortDescription": "An AI-powered system that composes classical Indian music (dhuns) from Hindi lyrics using raag theory, mood detection, and real-time audio synthesis.",
+    "intro": "Dhun AI is a sophisticated full-stack application that bridges ancient Indian classical music theory with modern artificial intelligence. Users input Hindi lyrics and the system — powered by Groq AI for mood detection and a custom raag-based melody engine — generates authentic classical compositions in real time. The platform supports 6 raags, 5 instruments, live audio playback via Web Audio API, and WAV export. Built end-to-end with Next.js, Supabase, and Tone.js, Dhun AI is one of the most culturally unique AI projects in the Indian developer space.",
+    "problem": "Indian classical music (raag-based composition) follows complex mathematical and emotional rules that take decades to master. There is no modern, accessible digital tool that lets everyday users — especially Hindi speakers — experience the process of composing a classical dhun from their own lyrics. Existing AI music tools are Western-centric and completely ignore the depth of Indian raag theory.",
+    "solution": "Built a full-stack AI music composition platform that implements genuine raag theory — aroha, avaroha, vadi, samvadi note rules — combined with Groq AI for lyric mood analysis. The system maps detected emotions to appropriate raags, generates note sequences respecting classical constraints, and synthesizes real-time audio with oscillator-based instrument simulation. Users can compose, visualize, play, and export their dhuns — all in the browser.",
+    "role": "Project Architect, Lead & Lead Developer",
+    "techStack": [
+      "Next.js 16",
+      "React",
+      "TailwindCSS v4",
+      "Tone.js",
+      "Web Audio API",
+      "Groq AI",
+      "Supabase (PostgreSQL)",
+      "shadcn/ui",
+      "Lucide React",
+      "Vercel"
+    ],
+    "challenges": [
+      "Implementing authentic raag theory algorithms — aroha/avaroha patterns, vadi/samvadi note emphasis — mathematically in JavaScript",
+      "Real-time oscillator-based audio synthesis with ADSR envelopes, reverb, and low-pass filters for 5 different Indian instruments",
+      "Integrating Groq AI for Hindi lyric mood detection and mapping emotions to appropriate raags",
+      "Designing a multi-page responsive UI that respects Indian classical aesthetics while staying modern",
+      "Building a complete backend with 10+ API routes for composition, analysis, training, gallery, and export",
+      "WAV file export from browser-rendered Web Audio API output",
+      "Supabase PostgreSQL schema design for raags, instruments, composed songs, and training data with fallback mock data"
+    ],
+    "images": ["/dhun.png"],
+    "repo": "",
+    "liveLink": "Not deployed yet",
+    "featured": true,
+    "fullstack": true,
+    "duration": "Ongoing",
+    "team": "Team"
+  },
+
+  {
+    "slug": "code-mentor-ai",
+    "title": "Code Mentor AI",
+    "shortDescription": "AI-driven intelligent platform bridging theoretical coding knowledge with practical application.",
+    "intro": "As the Project Lead, I spearheaded the development of Code Mentor AI, an intelligent platform designed to bridge the gap between theoretical coding knowledge and practical application. I managed a cross-functional team to build an AI-driven assistant that provides real-time guidance, code reviews, and learning paths for aspiring developers.",
+    "problem": "Self-taught developers often struggle with 'tutorial hell,' where they can follow instructions but fail to debug or understand logic in their own unique projects. Existing AI tools are often too generic, whereas human mentorship is expensive and not scalable, leaving a need for a specialized, accessible AI mentor tailored for coding.",
+    "solution": "I led the architectural design and implementation of a centralized AI hub that offers interactive code analysis and personalized feedback loops. By coordinating the frontend and backend development cycles, I ensured the platform delivered instant, context-aware solutions, helping users resolve complex logic issues while learning the underlying principles.",
+    "role": "Project Lead & Lead Developer",
+    "techStack": [
+      "MERN Stack",
+      "OpenAI API",
+      "Gemini API",
+      "React",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "Netlify"
+    ],
+    "challenges": [
+      "Secure user authentication system",
+      "Dynamic dashboard for tracking user progress",
+      "Complete SDLC management",
+      "High performance and scalable codebase",
+      "AI integration and context-aware responses"
+    ],
+    "images": ["/code_mentor_AI.png"],
+    "repo": "",
+    "liveLink": "https://code-mentorai.netlify.app/",
+    "featured": true,
+    "fullstack": true,
+    "duration": "4 months",
+    "team": "Team"
+  },
+
+  {
     "slug": "indelhincr-live-website",
     "title": "Indelhincr.com",
     "shortDescription": "Professional B2B business platform with responsive design and high-performance optimization.",
@@ -53,84 +125,12 @@
       "Continuous integration deployment"
     ],
     "images": ["/TrackMyExpenses.png"],
-    "repo": "Private Repository",
+    "repo": "",
     "liveLink": "https://trackmyexpensess.netlify.app/",
     "featured": true,
     "fullstack": true,
     "duration": "2 months",
     "team": "Solo Project"
-  },
-
-  {
-    "slug": "code-mentor-ai",
-    "title": "Code Mentor AI",
-    "shortDescription": "AI-driven intelligent platform bridging theoretical coding knowledge with practical application.",
-    "intro": "As the Project Lead, I spearheaded the development of Code Mentor AI, an intelligent platform designed to bridge the gap between theoretical coding knowledge and practical application. I managed a cross-functional team to build an AI-driven assistant that provides real-time guidance, code reviews, and learning paths for aspiring developers.",
-    "problem": "Self-taught developers often struggle with 'tutorial hell,' where they can follow instructions but fail to debug or understand logic in their own unique projects. Existing AI tools are often too generic, whereas human mentorship is expensive and not scalable, leaving a need for a specialized, accessible AI mentor tailored for coding.",
-    "solution": "I led the architectural design and implementation of a centralized AI hub that offers interactive code analysis and personalized feedback loops. By coordinating the frontend and backend development cycles, I ensured the platform delivered instant, context-aware solutions, helping users resolve complex logic issues while learning the underlying principles.",
-    "role": "Project Lead & Lead Developer",
-    "techStack": [
-      "MERN Stack",
-      "OpenAI API",
-      "Gemini API",
-      "React",
-      "Node.js",
-      "Express",
-      "MongoDB",
-      "Netlify"
-    ],
-    "challenges": [
-      "Secure user authentication system",
-      "Dynamic dashboard for tracking user progress",
-      "Complete SDLC management",
-      "High performance and scalable codebase",
-      "AI integration and context-aware responses"
-    ],
-    "images": ["/code_mentor_AI.png"],
-    "repo": "Private Repository",
-    "liveLink": "https://code-mentorai.netlify.app/",
-    "featured": true,
-    "fullstack": true,
-    "duration": "4 months",
-    "team": "Team"
-  },
-
-  {
-    "slug": "dhun-ai",
-    "title": "Dhun AI — Indian Classical Music Composition System",
-    "shortDescription": "An AI-powered system that composes classical Indian music (dhuns) from Hindi lyrics using raag theory, mood detection, and real-time audio synthesis.",
-    "intro": "Dhun AI is a sophisticated full-stack application that bridges ancient Indian classical music theory with modern artificial intelligence. Users input Hindi lyrics and the system — powered by Groq AI for mood detection and a custom raag-based melody engine — generates authentic classical compositions in real time. The platform supports 6 raags, 5 instruments, live audio playback via Web Audio API, and WAV export. Built end-to-end with Next.js, Supabase, and Tone.js, Dhun AI is one of the most culturally unique AI projects in the Indian developer space.",
-    "problem": "Indian classical music (raag-based composition) follows complex mathematical and emotional rules that take decades to master. There is no modern, accessible digital tool that lets everyday users — especially Hindi speakers — experience the process of composing a classical dhun from their own lyrics. Existing AI music tools are Western-centric and completely ignore the depth of Indian raag theory.",
-    "solution": "Built a full-stack AI music composition platform that implements genuine raag theory — aroha, avaroha, vadi, samvadi note rules — combined with Groq AI for lyric mood analysis. The system maps detected emotions to appropriate raags, generates note sequences respecting classical constraints, and synthesizes real-time audio with oscillator-based instrument simulation. Users can compose, visualize, play, and export their dhuns — all in the browser.",
-    "role": "Project Architect, Lead & Lead Developer",
-    "techStack": [
-      "Next.js 16",
-      "React",
-      "TailwindCSS v4",
-      "Tone.js",
-      "Web Audio API",
-      "Groq AI",
-      "Supabase (PostgreSQL)",
-      "shadcn/ui",
-      "Lucide React",
-      "Vercel"
-    ],
-    "challenges": [
-      "Implementing authentic raag theory algorithms — aroha/avaroha patterns, vadi/samvadi note emphasis — mathematically in JavaScript",
-      "Real-time oscillator-based audio synthesis with ADSR envelopes, reverb, and low-pass filters for 5 different Indian instruments",
-      "Integrating Groq AI for Hindi lyric mood detection and mapping emotions to appropriate raags",
-      "Designing a multi-page responsive UI that respects Indian classical aesthetics while staying modern",
-      "Building a complete backend with 10+ API routes for composition, analysis, training, gallery, and export",
-      "WAV file export from browser-rendered Web Audio API output",
-      "Supabase PostgreSQL schema design for raags, instruments, composed songs, and training data with fallback mock data"
-    ],
-    "images": ["/dhun.png"],
-    "repo": "Private Repository",
-    "liveLink": "Not deployed yet",
-    "featured": true,
-    "fullstack": true,
-    "duration": "Ongoing",
-    "team": "Team"
   },
 
   {
@@ -156,8 +156,8 @@
       "Responsive layout that works across mobile, tablet, and desktop",
       "Curating realistic product data with pricing, discounts, and imagery"
     ],
-    "images": ["/ck-ecommerce.png"],
-    "repo": "https://github.com/cherag-16/ck-ecommerce",
+    "images": ["/ck.png"],
+    "repo": "https://github.com/cherag-16/ck",
     "liveLink": "https://ck-e-commerce.vercel.app/",
     "featured": false,
     "fullstack": true,

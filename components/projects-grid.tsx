@@ -114,7 +114,9 @@ export function ProjectsGrid() {
                       <Link onClick={handleProjectClick} href={`/portfolio/${project.slug}`}>{project.title}</Link>
                     </CardTitle>
                     <div className="flex items-center space-x-2 mt-2">
-                      <Badge variant="outline">{project.category || (project.technologies?.includes('Node.js') ? 'Fullstack' : 'Frontend')}</Badge>
+                      <Badge variant="outline">
+                      {project.category || ((project.fullstack === true || project.techStack?.includes('Express.js') || project.technologies?.includes('Node.js')) ? 'Fullstack' : 'Frontend')}
+                    </Badge>
                       <div className="flex items-center space-x-1 text-sm text-muted-foreground">
                         <Calendar className="h-3 w-3" />
                         <span>{project.date || '2024'}</span>
@@ -126,14 +128,6 @@ export function ProjectsGrid() {
 
               <CardContent className="space-y-4">
                 <Link onClick={handleProjectClick} href={`/portfolio/${project.slug}`} className="text-muted-foreground block text-sm leading-relaxed">{project.shortDescription || project.description}</Link>
-
-                <div className="flex flex-wrap gap-2">
-                  {(project.technologies || []).map((tech: string) => (
-                    <Badge key={tech} variant="secondary" className="text-xs">
-                      {tech}
-                    </Badge>
-                  ))}
-                </div>
 
                 <div className="flex space-x-2 pt-2">
                   {project.githubUrl ? (

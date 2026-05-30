@@ -5,8 +5,8 @@ import { Code, Database, Cloud, Smartphone } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 const skillCategories = [
-  { icon: Code, label: "Frontend", count: "8+" },
-  { icon: Database, label: "Backend", count: "6+" },
+  { icon: Code, label: "Frontend", count: "7+" },
+  { icon: Database, label: "Backend", count: "8+" },
   { icon: Cloud, label: "Cloud", count: "5+" },
   { icon: Smartphone, label: "Mobile", count: "3+" },
 ]

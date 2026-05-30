@@ -1,22 +1,30 @@
-import Link from "next/link"
-import { notFound } from "next/navigation"
-import { Navigation } from "@/components/navigation"
-import { Footer } from "@/components/footer"
-import projectsData from "@/data/projects.json"
-import Image from "next/image"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { ExternalLink, Github, ArrowLeft, Calendar, Users, Code2, Zap } from "lucide-react"
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import { Navigation } from "@/components/navigation";
+import { Footer } from "@/components/footer";
+import projectsData from "@/data/projects.json";
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  ExternalLink,
+  Github,
+  ArrowLeft,
+  Calendar,
+  Users,
+  Code2,
+  Zap,
+} from "lucide-react";
 
-type Params = { params: Promise<{ slug: string }> }
+type Params = { params: Promise<{ slug: string }> };
 
 export default async function ProjectPage({ params }: Params) {
-  const slug = (await params).slug
-  const projects = (projectsData as any) as any[]
-  const project = projects.find((p) => p.slug === slug)
+  const slug = (await params).slug;
+  const projects = projectsData as any as any[];
+  const project = projects.find((p) => p.slug === slug);
 
-  if (!project) return notFound()
+  if (!project) return notFound();
 
   return (
     <div className="min-h-screen">
@@ -24,7 +32,10 @@ export default async function ProjectPage({ params }: Params) {
       <main>
         {/* Back Link */}
         <div className="container mx-auto px-3 sm:px-4 md:px-6 lg:px-8 py-6 pt-24 md:pt-20">
-          <Link href="/portfolio" className="inline-flex items-center gap-2 text-sm text-primary hover:text-primary/80 transition-colors">
+          <Link
+            href="/portfolio"
+            className="inline-flex items-center gap-2 text-sm text-primary hover:text-primary/80 transition-colors"
+          >
             <ArrowLeft className="h-4 w-4" /> Back to All Projects
           </Link>
         </div>
@@ -33,12 +44,12 @@ export default async function ProjectPage({ params }: Params) {
         <section className="container mx-auto px-3 sm:px-4 md:px-6 lg:px-8 max-w-6xl pb-12">
           <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl">
             {project.images?.[0] ? (
-              <Image 
-                src={project.images[0]} 
-                alt={project.title} 
-                width={1600} 
-                height={900} 
-                className="w-full h-48 sm:h-64 md:h-96 lg:h-[500px] object-cover" 
+              <Image
+                src={project.images[0]}
+                alt={project.title}
+                width={1600}
+                height={900}
+                className="w-full h-48 sm:h-64 md:h-96 lg:h-[500px] object-cover"
               />
             ) : (
               <div className="w-full h-48 sm:h-64 md:h-96 lg:h-[500px] bg-gradient-to-br from-primary/20 to-accent/20" />
@@ -53,8 +64,8 @@ export default async function ProjectPage({ params }: Params) {
               </p>
               <div className="flex flex-wrap gap-2">
                 {(project.techStack || []).slice(0, 6).map((t: string) => (
-                  <Badge 
-                    key={t} 
+                  <Badge
+                    key={t}
                     className="bg-white/20 backdrop-blur-sm border-white/30 text-white text-xs sm:text-sm"
                   >
                     {t}
@@ -72,7 +83,9 @@ export default async function ProjectPage({ params }: Params) {
             {/* Overview */}
             <Card className="border-border/50 bg-gradient-to-br from-card to-card/50 backdrop-blur-sm">
               <CardHeader>
-                <CardTitle className="font-serif text-2xl">Project Overview</CardTitle>
+                <CardTitle className="font-serif text-2xl">
+                  Project Overview
+                </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 <p className="text-muted-foreground leading-relaxed">
@@ -116,21 +129,30 @@ export default async function ProjectPage({ params }: Params) {
             )}
 
             {/* Technical Highlights */}
-            {(project.challenges && project.challenges.length > 0) && (
+            {project.challenges && project.challenges.length > 0 && (
               <Card className="border-border/50 bg-gradient-to-br from-card to-card/50 backdrop-blur-sm">
                 <CardHeader>
-                  <CardTitle className="font-serif text-xl">Technical Highlights</CardTitle>
+                  <CardTitle className="font-serif text-xl">
+                    Technical Highlights
+                  </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <ul className="space-y-2">
-                    {project.challenges.map((challenge: string, idx: number) => (
-                      <li key={idx} className="flex items-start gap-3 text-muted-foreground">
-                        <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-primary/20 text-primary flex-shrink-0 text-sm font-semibold mt-0.5">
-                          {idx + 1}
-                        </span>
-                        <span className="leading-relaxed pt-0.5">{challenge}</span>
-                      </li>
-                    ))}
+                    {project.challenges.map(
+                      (challenge: string, idx: number) => (
+                        <li
+                          key={idx}
+                          className="flex items-start gap-3 text-muted-foreground"
+                        >
+                          <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-primary/20 text-primary flex-shrink-0 text-sm font-semibold mt-0.5">
+                            {idx + 1}
+                          </span>
+                          <span className="leading-relaxed pt-0.5">
+                            {challenge}
+                          </span>
+                        </li>
+                      ),
+                    )}
                   </ul>
                 </CardContent>
               </Card>
@@ -142,7 +164,9 @@ export default async function ProjectPage({ params }: Params) {
             {/* Key Information */}
             <Card className="border-primary/30 bg-gradient-to-br from-primary/10 to-primary/5 backdrop-blur-sm">
               <CardHeader>
-                <CardTitle className="font-serif text-lg">Project Details</CardTitle>
+                <CardTitle className="font-serif text-lg">
+                  Project Details
+                </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 {project.role && (
@@ -150,7 +174,9 @@ export default async function ProjectPage({ params }: Params) {
                     <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-1">
                       My Role
                     </p>
-                    <p className="text-foreground font-medium">{project.role}</p>
+                    <p className="text-foreground font-medium">
+                      {project.role}
+                    </p>
                   </div>
                 )}
 
@@ -159,7 +185,9 @@ export default async function ProjectPage({ params }: Params) {
                     <p className="flex items-center gap-1 text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-1">
                       <Calendar className="h-3 w-3" /> Duration
                     </p>
-                    <p className="text-foreground font-medium">{project.duration}</p>
+                    <p className="text-foreground font-medium">
+                      {project.duration}
+                    </p>
                   </div>
                 )}
 
@@ -168,7 +196,9 @@ export default async function ProjectPage({ params }: Params) {
                     <p className="flex items-center gap-1 text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-1">
                       <Users className="h-3 w-3" /> Team
                     </p>
-                    <p className="text-foreground font-medium">{project.team}</p>
+                    <p className="text-foreground font-medium">
+                      {project.team}
+                    </p>
                   </div>
                 )}
               </CardContent>
@@ -185,9 +215,9 @@ export default async function ProjectPage({ params }: Params) {
               <CardContent>
                 <div className="flex flex-wrap gap-2">
                   {(project.techStack || []).map((tech: string) => (
-                    <Badge 
-                      key={tech} 
-                      variant="outline" 
+                    <Badge
+                      key={tech}
+                      variant="outline"
                       className="border-primary/30 text-primary bg-primary/5 text-xs"
                     >
                       {tech}
@@ -200,27 +230,50 @@ export default async function ProjectPage({ params }: Params) {
             {/* Links */}
             <Card className="border-border/50 bg-gradient-to-br from-card to-card/50 backdrop-blur-sm">
               <CardHeader>
-                <CardTitle className="font-serif text-lg">Project Links</CardTitle>
+                <CardTitle className="font-serif text-lg">
+                  Project Links
+                </CardTitle>
               </CardHeader>
               <CardContent className="space-y-3">
                 {project.repo ? (
-                  <Button asChild className="w-full bg-primary hover:bg-primary/90" size="sm">
-                    <a href={project.repo} target="_blank" rel="noopener noreferrer">
+                  <Button
+                    asChild
+                    className="w-full bg-primary hover:bg-primary/90"
+                    size="sm"
+                  >
+                    <a
+                      href={project.repo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <Github className="h-4 w-4 mr-2" /> View GitHub Repo
                     </a>
                   </Button>
                 ) : (
-                  <p className="text-sm text-muted-foreground">GitHub repo not available</p>
+                  <p className="text-sm text-muted-foreground">
+                    GitHub repo not available
+                  </p>
                 )}
 
                 {project.liveLink ? (
-                  <Button asChild variant="outline" className="w-full" size="sm">
-                    <a href={project.liveLink} target="_blank" rel="noopener noreferrer">
+                  <Button
+                    asChild
+                    variant="outline"
+                    className="w-full"
+                    size="sm"
+                  >
+                    <a
+                      href={project.liveLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <ExternalLink className="h-4 w-4 mr-2" /> Live Demo
                     </a>
                   </Button>
                 ) : (
-                  <p className="text-sm text-muted-foreground">Live demo not available</p>
+                  <p className="text-sm text-muted-foreground">
+                    Live demo not available
+                  </p>
                 )}
               </CardContent>
             </Card>
@@ -233,7 +286,11 @@ export default async function ProjectPage({ params }: Params) {
             <h2 className="text-2xl sm:text-3xl font-serif font-bold text-foreground mb-4">
               Want to see more projects?
             </h2>
-            <Button size="lg" className="bg-primary hover:bg-primary/90" asChild>
+            <Button
+              size="lg"
+              className="bg-primary hover:bg-primary/90"
+              asChild
+            >
               <Link href="/portfolio">View All Projects</Link>
             </Button>
           </div>
@@ -241,5 +298,5 @@ export default async function ProjectPage({ params }: Params) {
       </main>
       <Footer />
     </div>
-  )
+  );
 }

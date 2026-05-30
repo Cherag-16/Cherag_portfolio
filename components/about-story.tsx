@@ -32,7 +32,7 @@ const values = [
 
 export function AboutStory() {
   return (
-    <section className="py-20 bg-muted/30">
+    <section className="pt-10 pb-18 bg-muted/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
@@ -48,13 +48,13 @@ export function AboutStory() {
                 , a Full Stack Developer from Indore who genuinely loves every
                 part of this craft. I love building products from scratch,
                 debugging what others give up on, sweating the design details,
-                and refining every line until the product ships flawlessly. My most exciting work
-                right now is Code Mentor AI — an AI-powered platform that
-                bridges the gap between learning to code and actually applying
-                it. It's the kind of project that pushed me across the full
-                stack: React frontend, Node/Express backend, MongoDB, and
-                integrating both OpenAI and Gemini APIs into a product that's
-                genuinely useful.
+                and refining every line until the product ships flawlessly. My
+                most exciting work right now is Code Mentor AI — an AI-powered
+                platform that bridges the gap between learning to code and
+                actually applying it. It's the kind of project that pushed me
+                across the full stack: React frontend, Node/Express backend,
+                MongoDB, and integrating both OpenAI and Gemini APIs into a
+                product that's genuinely useful.
               </p>
               <p>
                 Beyond that, I've shipped a B2B business platform for a real

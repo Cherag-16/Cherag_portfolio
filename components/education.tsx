@@ -4,7 +4,7 @@ import { GraduationCap, Award, Calendar } from "lucide-react"
 
 export function Education() {
   return (
-    <section className="py-20 bg-background">
+    <section className="pt-6 pb-10 bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-serif font-bold text-foreground mb-4">Education</h2>
