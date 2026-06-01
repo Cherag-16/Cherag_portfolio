@@ -3,6 +3,7 @@ import type { Metadata } from "next"
 import { Montserrat, Open_Sans } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
+import { Analytics } from "@vercel/analytics/next"
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -87,6 +88,7 @@ html {
       <body className={`${montserrat.variable} ${openSans.variable} antialiased bg-background text-foreground`}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange={false}>
           {children}
+          <Analytics />
         </ThemeProvider>
       </body>
     </html>
