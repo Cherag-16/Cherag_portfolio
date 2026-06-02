@@ -125,15 +125,14 @@ export function ContactForm() {
   }
 
   return (
-    <section className="py-12 sm:py-16 lg:py-20 bg-background">
-      <div className="container mx-auto px-3 sm:px-4 md:px-6 lg:px-8 max-w-2xl">
-        <Card className="border-border/50 bg-gradient-to-br from-card to-card/50 backdrop-blur-sm">
-          <CardHeader>
-            <CardTitle className="font-serif text-2xl sm:text-3xl text-foreground">Get In Touch</CardTitle>
-            <p className="text-sm sm:text-base text-muted-foreground mt-2">
-              Have a project in mind or want to collaborate? Send me a message and I'll get back to you within 24 hours.
-            </p>
-          </CardHeader>
+    <div className="w-full">
+      <Card className="border-border/50 bg-gradient-to-br from-card to-card/50 backdrop-blur-sm h-full">
+        <CardHeader>
+          <CardTitle className="font-serif text-2xl sm:text-3xl text-foreground">Send Me a Message</CardTitle>
+          <p className="text-sm sm:text-base text-muted-foreground mt-2">
+            Have a project in mind or want to collaborate? Send me a message and I'll get back to you within 24 hours.
+          </p>
+        </CardHeader>
           <CardContent>
             <form onSubmit={handleSubmit} className="space-y-6">
               {/* Success Message */}
@@ -251,7 +250,6 @@ export function ContactForm() {
             </form>
           </CardContent>
         </Card>
-      </div>
-    </section>
+    </div>
   )
 }
