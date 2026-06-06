@@ -2,11 +2,13 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { ExternalLink, Github, Calendar, Star } from "lucide-react"
 import projectsData from "@/data/projects.json"
+import { FlipCard } from "@/components/flip-card"
 const projects = ((projectsData as unknown) as any[]) || []
 
 const categories = ["All", "Fullstack", "Frontend"]
@@ -75,71 +77,12 @@ export function ProjectsGrid() {
 
         {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProjects.map((project, index) => (
-            <Card
+          {filteredProjects.map((project) => (
+            <FlipCard
               key={project.title}
-              className="group overflow-hidden border-border hover:border-primary/50 transition-all duration-300 hover:shadow-xl bg-card/50 backdrop-blur-sm"
-              onMouseEnter={() => setHoveredProject(index)}
-              onMouseLeave={() => setHoveredProject(null)}
-            >
-              <div className="relative overflow-hidden">
-                <Link onClick={handleProjectClick} href={`/portfolio/${project.slug}`} className="block">
-                  <img src={project.images?.[0] || project.image || "/placeholder.svg"} alt={project.title} className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110" />
-                </Link>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <div className="absolute top-4 right-4 flex space-x-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  {project.githubUrl ? (
-                    <Button size="sm" variant="secondary" asChild>
-                      <Link href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                        <Github className="h-4 w-4" />
-                      </Link>
-                    </Button>
-                  ) : null}
-                </div>
-                <div className="absolute top-4 left-4 flex space-x-2">
-                  {project.featured && (
-                    <Badge className="bg-accent text-accent-foreground">
-                      <Star className="h-3 w-3 mr-1" />
-                      Featured
-                    </Badge>
-                  )}
-                  <Badge variant="secondary">{project.status}</Badge>
-                </div>
-              </div>
-
-              <CardHeader>
-                <div className="flex items-start justify-between">
-                  <div>
-                    <CardTitle className="font-serif text-xl group-hover:text-primary transition-colors">
-                      <Link onClick={handleProjectClick} href={`/portfolio/${project.slug}`}>{project.title}</Link>
-                    </CardTitle>
-                    <div className="flex items-center space-x-2 mt-2">
-                      <Badge variant="outline">
-                      {project.category || ((project.fullstack === true || project.techStack?.includes('Express.js') || project.technologies?.includes('Node.js')) ? 'Fullstack' : 'Frontend')}
-                    </Badge>
-                      <div className="flex items-center space-x-1 text-sm text-muted-foreground">
-                        <Calendar className="h-3 w-3" />
-                        <span>{project.date || '2024'}</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </CardHeader>
-
-              <CardContent className="space-y-4">
-                <Link onClick={handleProjectClick} href={`/portfolio/${project.slug}`} className="text-muted-foreground block text-sm leading-relaxed">{project.shortDescription || project.description}</Link>
-
-                <div className="flex space-x-2 pt-2">
-                  {project.githubUrl ? (
-                    <Button size="sm" variant="ghost" asChild>
-                      <Link href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                        <Github className="h-4 w-4" />
-                      </Link>
-                    </Button>
-                  ) : null}
-                </div>
-              </CardContent>
-            </Card>
+              project={project}
+              onClick={handleProjectClick}
+            />
           ))}
         </div>
 

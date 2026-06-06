@@ -6,6 +6,8 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Download, Code, Sparkles } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { motion, Variants } from "framer-motion";
+import { StyledDownloadButton } from "@/components/styled-buttons";
+import { FancyName } from "@/components/fancy-name";
 
 export function HeroSection() {
   const [isVisible, setIsVisible] = useState(false);
@@ -144,9 +146,7 @@ export function HeroSection() {
           <motion.div className="space-y-4" variants={itemVariants}>
             <p className="text-sm sm:text-base lg:text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               Hi, I'm{" "}
-              <span className="font-semibold text-primary font-serif">
-                Cherag Saxena
-              </span>{" "}
+              <FancyName name="Cherag Saxena" className="text-2xl sm:text-2xl" />{" "}
               - a Full Stack Developer who builds things that actually work. I
               love solving hard problems, crafting clean interfaces, and
               shipping full-stack products —{" "}
@@ -164,7 +164,7 @@ export function HeroSection() {
 
           {/* CTA Buttons */}
           <motion.div
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4"
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4 flex-wrap"
             variants={itemVariants}
           >
             <motion.div
@@ -210,6 +210,7 @@ export function HeroSection() {
                 </Link>
               </Button>
             </motion.div>
+            <StyledDownloadButton href="/resume.pdf" fileName="Cherag-Saxena-Resume" variant="secondary" />
           </motion.div>
 
           {/* Quick Stats Preview */}

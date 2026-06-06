@@ -11,6 +11,7 @@ import { Alert, AlertDescription } from "@/components/ui/alert"
 import { Send, CheckCircle, AlertCircle } from "lucide-react"
 import { useToast } from "@/hooks/use-toast"
 import { motion } from "framer-motion"
+import { StyledSubmitButton } from "@/components/styled-buttons"
 
 export function ContactForm() {
   const [formData, setFormData] = useState({
@@ -225,23 +226,7 @@ export function ContactForm() {
                 />
               </div>
 
-              <Button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
-              >
-                {isSubmitting ? (
-                  <>
-                    <div className="animate-spin rounded-full h-4 w-4 border-2 border-current border-t-transparent mr-2" />
-                    Sending...
-                  </>
-                ) : (
-                  <>
-                    <Send className="h-4 w-4 mr-2" />
-                    Send Message
-                  </>
-                )}
-              </Button>
+              <StyledSubmitButton isLoading={isSubmitting} isSuccess={submitStatus === "success"} />
 
               <div className="text-center text-sm text-muted-foreground space-y-1 pt-4 border-t border-border/30">
                 <p className="font-medium text-foreground">Response Time</p>

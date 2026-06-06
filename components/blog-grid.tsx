@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import blogs from "@/data/blogs.json"
 import { Card, CardContent } from "@/components/ui/card"
 
@@ -21,11 +22,13 @@ export function BlogGrid() {
           {posts.map((post) => (
             <Link key={post.slug} href={`/blog/${post.slug}`}>
               <Card className="h-full overflow-hidden hover:shadow-lg transition-shadow duration-300 cursor-pointer border-border bg-card/50 backdrop-blur-sm">
-                <div className="w-full h-40 overflow-hidden bg-muted">
-                  <img
+                <div className="relative w-full h-40 overflow-hidden bg-muted">
+                  <Image
                     src={post.image || "/placeholder.svg"}
                     alt={post.title}
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                    fill
+                    className="object-cover hover:scale-105 transition-transform duration-300"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
                 </div>
                 <CardContent className="p-4 flex flex-col justify-between h-48">
