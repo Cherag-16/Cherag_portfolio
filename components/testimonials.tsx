@@ -53,7 +53,6 @@ export function Testimonials() {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [isHovering, setIsHovering] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
-  const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
     if (isHovering) return;
@@ -177,28 +176,6 @@ export function Testimonials() {
           {/* Gradient overlays for infinite scroll effect */}
           <div className="absolute left-0 top-0 bottom-0 w-12 sm:w-32 bg-gradient-to-r from-background to-transparent pointer-events-none z-10" />
           <div className="absolute right-0 top-0 bottom-0 w-12 sm:w-32 bg-gradient-to-l from-background to-transparent pointer-events-none z-10" />
-        </div>
-
-        {/* Pagination Dots */}
-        <div className="flex justify-center gap-2 mt-8">
-          {testimonials.map((_, idx) => (
-            <motion.button
-              key={idx}
-              onClick={() => {
-                const container = scrollContainerRef.current;
-                if (container) {
-                  const scrollWidth = container.scrollWidth / testimonials.length;
-                  container.scrollLeft = idx * scrollWidth;
-                  setCurrentIndex(idx);
-                }
-              }}
-              className={`h-2 rounded-full transition-all duration-300 ${
-                idx === currentIndex ? "bg-primary w-8" : "bg-muted-foreground/40 w-2"
-              }`}
-              whileHover={{ scale: 1.2 }}
-              aria-label={`Go to testimonial ${idx + 1}`}
-            />
-          ))}
         </div>
       </div>
     </section>

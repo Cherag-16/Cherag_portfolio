@@ -61,11 +61,12 @@ const availability = [
 
 export function ContactInfo() {
   return (
-    <div className="w-full">
-      <div className="space-y-6">
+    <section className="py-20 bg-muted/30">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="space-y-8 max-w-2xl mx-auto lg:mx-0">
           <div>
-            <h2 className="text-2xl sm:text-3xl font-serif font-bold text-foreground mb-3">Get In Touch</h2>
-            <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+            <h2 className="text-3xl font-serif font-bold text-foreground mb-4">Contact Information</h2>
+            <p className="text-muted-foreground leading-relaxed">
               I'm always excited to discuss new opportunities, collaborate on interesting projects, or simply connect
               with fellow developers. Here are the best ways to reach me.
             </p>
@@ -179,7 +180,8 @@ export function ContactInfo() {
               </div>
             </CardContent>
           </Card>
+        </div>
       </div>
-    </div>
+    </section>
   )
 }

@@ -1,4 +1,3 @@
-import { Metadata } from "next"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { ExperienceHero } from "@/components/experience-hero"
@@ -6,18 +5,6 @@ import { InternshipDetails } from "@/components/internship-details"
 import { Users, MessageSquare, Target, Clock, Lightbulb, Zap } from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-
-export const metadata: Metadata = {
-  title: "Experience - Cherag Saxena | Internships & Professional Work",
-  description: "Explore Cherag Saxena's professional experience, internships, and hands-on projects in full-stack web development.",
-  keywords: "Experience, Internships, Professional Work, Development Experience, Work History, Career Timeline",
-  openGraph: {
-    title: "Experience - Cherag Saxena | Professional Background",
-    description: "View my professional experience and internship achievements.",
-    type: "website",
-    url: "https://cheragsaxena.vercel.app/experience",
-  },
-}
 
 
 const workValues = [

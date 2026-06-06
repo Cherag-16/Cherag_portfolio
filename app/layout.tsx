@@ -70,49 +70,12 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  const schemaData = {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Cherag Saxena",
-    "url": "https://cheragsaxena.vercel.app",
-    "jobTitle": "Full Stack Developer",
-    "sameAs": [
-      "https://github.com/cherag-16",
-      "https://www.linkedin.com/in/cherag-saxena-36415a2b8/",
-      "https://twitter.com/cheragsaxena"
-    ],
-    "email": "cheragsaxena16@gmail.com",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Indore",
-      "addressCountry": "IN"
-    },
-    "knowsAbout": [
-      "React",
-      "Node.js",
-      "MERN Stack",
-      "JavaScript",
-      "TypeScript",
-      "MongoDB",
-      "Express.js",
-      "Next.js",
-      "Tailwind CSS",
-      "API Development",
-      "Web Development",
-      "Full Stack Development"
-    ]
-  }
-
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
         <meta name="theme-color" content="#ffffff" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-        <link rel="canonical" href="https://cheragsaxena.vercel.app" />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
-        />
+        <link rel="canonical" href="https://cheragsaxena.com" />
         <style>{`
 html {
   font-family: ${openSans.style.fontFamily};

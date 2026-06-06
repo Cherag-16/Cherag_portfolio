@@ -1,12 +1,12 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { ExternalLink, Github, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react"
+import { ExternalLink, Github, ArrowRight } from "lucide-react"
 import projectsData from "@/data/projects.json"
 import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/scroll-reveal"
 import { motion } from "framer-motion"
@@ -30,24 +30,6 @@ const featuredProjects = ((projectsData as unknown) as Project[] || []).filter((
 
 export function FeaturedProjects() {
   const [hoveredProject, setHoveredProject] = useState<number | null>(null)
-  const [activeIndex, setActiveIndex] = useState(0)
-  const itemsPerPage = typeof window !== "undefined" && window.innerWidth >= 1024 ? 3 : window.innerWidth >= 768 ? 2 : 1
-
-  useEffect(() => {
-    const handleResize = () => {
-      // Handle responsive carousel updates if needed
-    }
-    window.addEventListener("resize", handleResize)
-    return () => window.removeEventListener("resize", handleResize)
-  }, [])
-
-  const handlePrev = () => {
-    setActiveIndex((prev) => (prev > 0 ? prev - 1 : featuredProjects.length - 1))
-  }
-
-  const handleNext = () => {
-    setActiveIndex((prev) => (prev < featuredProjects.length - 1 ? prev + 1 : 0))
-  }
 
   const handleProjectClick = () => {
     sessionStorage.setItem("portfolioScrollPos", window.scrollY.toString())
@@ -72,21 +54,20 @@ export function FeaturedProjects() {
           </p>
         </ScrollReveal>
 
-        <div className="relative mb-12">
-          <StaggerContainer staggerDelay={0.15} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
-            {featuredProjects.map((project, index) => (
-              <StaggerItem key={project.slug || project.title} direction="up">
-                <Link onClick={handleProjectClick} href={`/portfolio/${project.slug}`} className="block h-full group">
-                  <motion.div
-                    whileHover={{ y: -4 }}
-                    transition={{ type: "spring", stiffness: 300 }}
-                    className="h-full"
+        <StaggerContainer staggerDelay={0.15} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 mb-8">
+          {featuredProjects.map((project, index) => (
+            <StaggerItem key={project.slug || project.title} direction="up">
+              <Link onClick={handleProjectClick} href={`/portfolio/${project.slug}`} className="block h-full group">
+                <motion.div
+                  whileHover={{ y: -4 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                  className="h-full"
+                >
+                  <Card
+                    className="group overflow-hidden border-border/30 hover:border-primary/50 transition-all duration-300 hover:shadow-lg glass-card cursor-pointer h-full flex flex-col"
+                    onMouseEnter={() => setHoveredProject(index)}
+                    onMouseLeave={() => setHoveredProject(null)}
                   >
-                    <Card
-                      className="group overflow-hidden border-border/30 hover:border-primary/50 transition-all duration-300 hover:shadow-lg glass-card cursor-pointer h-full flex flex-col"
-                      onMouseEnter={() => setHoveredProject(index)}
-                      onMouseLeave={() => setHoveredProject(null)}
-                    >
                     <div className="relative overflow-hidden">
                       <motion.div
                         whileHover={{ scale: 1.08 }}
@@ -131,32 +112,7 @@ export function FeaturedProjects() {
               </Link>
             </StaggerItem>
           ))}
-          </StaggerContainer>
-
-          {/* Carousel Navigation Buttons */}
-          {featuredProjects.length > 3 && (
-            <div className="absolute -bottom-16 left-0 right-0 flex justify-center gap-4">
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={handlePrev}
-                className="p-2 rounded-full border border-border/50 hover:border-primary/50 hover:bg-primary/10 transition-all duration-300"
-                aria-label="Previous projects"
-              >
-                <ChevronLeft className="h-5 w-5 text-foreground" />
-              </motion.button>
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={handleNext}
-                className="p-2 rounded-full border border-border/50 hover:border-primary/50 hover:bg-primary/10 transition-all duration-300"
-                aria-label="Next projects"
-              >
-                <ChevronRight className="h-5 w-5 text-foreground" />
-              </motion.button>
-            </div>
-          )}
-        </div>
+        </StaggerContainer>
 
         <ScrollReveal direction="up" className="text-center">
           <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.96 }}>

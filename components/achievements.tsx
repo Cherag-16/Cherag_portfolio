@@ -177,15 +177,15 @@ export function Achievements() {
       : credentialCards.filter((card) => card.category === activeFilter);
 
   return (
-    <section className="pt-0 pb-[29px] bg-gradient-to-b from-background via-muted/10 to-background relative overflow-hidden" style={{ marginTop: "10px" }}>
+    <section className="pt-4 pb-10 bg-background text-slate-900 dark:text-slate-100">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* ── Industry Credentials heading ── */}
         <div className="mb-5">
-          <p className="text-xs uppercase tracking-[0.4em] text-slate-500 dark:text-slate-400 mb-2" style={{ fontSize: "18px" }}>
+          <p className="text-xs uppercase tracking-[0.4em] text-slate-500 dark:text-slate-400 mb-2">
             Industry Credentials
           </p>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-foreground mb-2" style={{ marginTop: "10px" }}>
+          <h2 className="text-2xl sm:text-3xl font-serif font-bold text-foreground">
             Industry Credentials
           </h2>
           <p className="mt-2 max-w-2xl text-sm sm:text-base text-muted-foreground">
