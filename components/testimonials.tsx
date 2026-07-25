@@ -55,7 +55,7 @@ export function Testimonials() {
   // Optimization: Use refs for animation state to prevent continuous re-renders
   // Previously, using useState in a setInterval caused the component to re-render every 30ms.
   const scrollPositionRef = useRef(0);
-  const requestRef = useRef<number>();
+  const requestRef = useRef<number | null>(null);
 
   useEffect(() => {
     if (isHovering) {
