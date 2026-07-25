@@ -52,30 +52,43 @@ const testimonials = [
 export function Testimonials() {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [isHovering, setIsHovering] = useState(false);
-  const [scrollPosition, setScrollPosition] = useState(0);
+  // Optimization: Use refs for animation state to prevent continuous re-renders
+  // Previously, using useState in a setInterval caused the component to re-render every 30ms.
+  const scrollPositionRef = useRef(0);
+  const requestRef = useRef<number | null>(null);
 
   useEffect(() => {
-    if (isHovering) return;
+    if (isHovering) {
+      if (requestRef.current) {
+        cancelAnimationFrame(requestRef.current);
+      }
+      return;
+    }
 
     const scrollContainer = scrollContainerRef.current;
     if (!scrollContainer) return;
 
-    let position = scrollPosition;
     const scrollSpeed = 0.8;
-    const maxScroll = scrollContainer.scrollWidth - scrollContainer.clientWidth;
 
-    const scrollStep = () => {
-      position += scrollSpeed;
-      if (position > maxScroll) {
-        position = 0;
+    const animate = () => {
+      const maxScroll = scrollContainer.scrollWidth - scrollContainer.clientWidth;
+
+      scrollPositionRef.current += scrollSpeed;
+      if (scrollPositionRef.current > maxScroll) {
+        scrollPositionRef.current = 0;
       }
-      setScrollPosition(position);
-      scrollContainer.scrollLeft = position;
+      scrollContainer.scrollLeft = scrollPositionRef.current;
+      requestRef.current = requestAnimationFrame(animate);
     };
 
-    const interval = setInterval(scrollStep, 30);
-    return () => clearInterval(interval);
-  }, [isHovering, scrollPosition]);
+    requestRef.current = requestAnimationFrame(animate);
+
+    return () => {
+      if (requestRef.current) {
+        cancelAnimationFrame(requestRef.current);
+      }
+    };
+  }, [isHovering]);
 
   return (
     <section className="pt-4 pb-12 bg-gradient-to-b from-background via-muted/5 to-background relative overflow-hidden">

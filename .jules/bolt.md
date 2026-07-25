@@ -1,0 +1,3 @@
+## 2024-07-24 - React Continuous DOM Animation Anti-Pattern
+**Learning:** Using `useState` to drive continuous DOM animations (like a scrolling marquee) via `setInterval` causes severe performance degradation in React. This triggers a full component re-render on every tick (e.g., every 30ms), wasting significant CPU cycles and potentially causing stuttering.
+**Action:** Always decouple continuous DOM animations from React's rendering cycle. Use `useRef` to track mutable values that don't need to trigger re-renders, and use `requestAnimationFrame` instead of `setInterval` for smoother, more performant animations that sync with the browser's refresh rate.
