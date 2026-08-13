@@ -63,7 +63,7 @@ export function AboutHero() {
                 <div>
                   <div className="font-medium text-foreground">Education</div>
                   <div className="text-sm text-muted-foreground">
-                    B.Tech Student
+                    Final Year B.Tech Student
                   </div>
                 </div>
               </div>
